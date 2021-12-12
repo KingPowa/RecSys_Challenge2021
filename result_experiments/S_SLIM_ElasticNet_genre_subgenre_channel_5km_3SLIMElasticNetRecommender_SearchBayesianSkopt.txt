@@ -1,0 +1,372 @@
+SearchBayesianSkopt: Config 0 Exception. Config: {'l1_ratio': 0.030012651038682094, 'topK': 2243, 'alpha': 0.012120957801347892, 'mw': 5.0574787668729595} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 1 Exception. Config: {'l1_ratio': 0.012412400390950653, 'topK': 3579, 'alpha': 0.037975086164205266, 'mw': 8.803314953288009} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 2 Exception. Config: {'l1_ratio': 0.1897621813594657, 'topK': 3410, 'alpha': 0.0988100148211738, 'mw': 11.578523450418675} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 3 Exception. Config: {'l1_ratio': 0.7090375705422371, 'topK': 3566, 'alpha': 0.022099028848399014, 'mw': 3.130558671028423} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 4 Exception. Config: {'l1_ratio': 0.27955654122679957, 'topK': 2534, 'alpha': 0.09894973922935059, 'mw': 7.437226357091679} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 5 Exception. Config: {'l1_ratio': 0.04344838708653862, 'topK': 2328, 'alpha': 0.0168510825872168, 'mw': 14.497906274404768} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 6 Exception. Config: {'l1_ratio': 0.08218964510866966, 'topK': 2844, 'alpha': 0.0782565008666799, 'mw': 4.443831807223329} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 7 Exception. Config: {'l1_ratio': 0.037794388338558325, 'topK': 3903, 'alpha': 0.07140085042999442, 'mw': 11.87320249311865} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 8 Exception. Config: {'l1_ratio': 0.7275486052987584, 'topK': 2204, 'alpha': 0.06392652111077127, 'mw': 15.178738042243916} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Search interrupted. No valid config was found during the initial random initialization
+SearchBayesianSkopt: Config 0 Exception. Config: {'l1_ratio': 0.04118582294238093, 'topK': 3870, 'alpha': 0.016310994381758794, 'mw': 14.255845497018782} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 1 Exception. Config: {'l1_ratio': 0.14471771603669417, 'topK': 3889, 'alpha': 0.007433859460026113, 'mw': 15.703547298334684} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 2 Exception. Config: {'l1_ratio': 0.028624078641357284, 'topK': 3152, 'alpha': 0.01230700093438208, 'mw': 13.15162178303002} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 3 Exception. Config: {'l1_ratio': 0.8422168824727243, 'topK': 3851, 'alpha': 0.01999226427124978, 'mw': 5.921836718355507} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 4 Exception. Config: {'l1_ratio': 0.9683171478450885, 'topK': 3847, 'alpha': 0.022787115777829638, 'mw': 1.6462183170654439} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 5 Exception. Config: {'l1_ratio': 0.02285960880355005, 'topK': 3302, 'alpha': 0.0009362256266488481, 'mw': 3.4743458672218854} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 6 Exception. Config: {'l1_ratio': 0.1609441051621835, 'topK': 3645, 'alpha': 0.053085104072584204, 'mw': 8.444645853185527} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 7 Exception. Config: {'l1_ratio': 0.12394665153440178, 'topK': 2028, 'alpha': 0.03761686142648567, 'mw': 9.399411374339037} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Config 8 Exception. Config: {'l1_ratio': 0.012109161025331213, 'topK': 2650, 'alpha': 0.007908499162170837, 'mw': 14.326893306740322} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 304, in _fit_model
+    recommender_instance.fit(*self.recommender_input_args.FIT_POSITIONAL_ARGS,
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 368, in fit
+    super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
+  File "C:\Users\marti\miniconda3\envs\RecSys\lib\site-packages\sklearn\utils\_testing.py", line 308, in wrapper
+    return fn(*args, **kwargs)
+TypeError: fit() got multiple values for argument 'l1_ratio'
+
+SearchBayesianSkopt: Search interrupted. No valid config was found during the initial random initialization
+SearchBayesianSkopt: Config 0 Exception. Config: {'l1_ratio': 0.06549816228749891, 'topK': 3342, 'alpha': 0.025125363842469908, 'mw': 1.5967245049009748} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 1 Exception. Config: {'l1_ratio': 0.06612592660121511, 'topK': 3567, 'alpha': 0.07835186451476515, 'mw': 9.151071685316131} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 2 Exception. Config: {'l1_ratio': 0.05324921187365189, 'topK': 2862, 'alpha': 0.02976332146420978, 'mw': 6.3108140181579255} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 3 Exception. Config: {'l1_ratio': 0.016344462498974376, 'topK': 2017, 'alpha': 0.08201327601686653, 'mw': 4.345790305203618} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 4 Exception. Config: {'l1_ratio': 0.0350471319512542, 'topK': 2170, 'alpha': 0.0851515864014818, 'mw': 9.391460255884201} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 5 Exception. Config: {'l1_ratio': 0.04673158200319247, 'topK': 4857, 'alpha': 0.09557032428313311, 'mw': 5.710233978492501} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 6 Exception. Config: {'l1_ratio': 0.08546015287575226, 'topK': 4610, 'alpha': 0.02284302417906912, 'mw': 1.3384603283899943} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 7 Exception. Config: {'l1_ratio': 0.0150802629012495, 'topK': 4199, 'alpha': 0.054593321865760866, 'mw': 3.089069449490932} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 8 Exception. Config: {'l1_ratio': 0.011731403749691068, 'topK': 2037, 'alpha': 0.09464999127707036, 'mw': 3.4875555516501238} - Exception: Traceback (most recent call last):
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "../RecSysRep\Recommenders\SLIM\SLIMElasticNetRecommender.py", line 378, in __init__
+    super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Search interrupted. No valid config was found during the initial random initialization
