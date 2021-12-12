@@ -1,1 +1,0 @@
-SearchBayesianSkopt: argument save_model is 'last' but no recommender_input_args_last_test provided, saving best model on train data alone.
