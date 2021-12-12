@@ -1,0 +1,5 @@
+*.log
+subs/
+result_experiments/
+data/
+.ipynb_checkpoints/
