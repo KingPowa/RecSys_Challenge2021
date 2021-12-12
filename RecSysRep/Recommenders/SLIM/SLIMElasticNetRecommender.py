@@ -375,7 +375,7 @@ class SLIM_S_ElasticNetRecommender(BaseItemSimilarityMatrixRecommender):
     RECOMMENDER_NAME = "SLIMElasticNetRecommender"
 
     def __init__(self, URM_train, ICM, verbose = True):
-        super(SLIMElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
+        super(SLIM_S_ElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
         self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
         self.ICM.eliminate_zeros()
         self.URM_train_original = self.URM_train
