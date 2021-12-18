@@ -65,28 +65,30 @@ if __name__ == '__main__':
     from skopt.space import Real, Integer, Categorical
 
     hyperparameters_range_dictionary = {
-        "topK": Integer(1000, 6000),
-        "l1_ratio": Real(low=1e-5, high=1.0, prior='log-uniform'),
-        "alpha": Real(low=1e-3, high=1.0, prior='uniform'),
-        "workers": Categorical([8])
-    }
+                "topK": Integer(1000, 6000),
+                "epochs": Categorical([3000]),
+                "symmetric": Categorical([True, False]),
+                "sgd_mode": Categorical(["sgd", "adagrad", "adam"]),
+                "lambda_i": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
+                "lambda_j": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
+                "learning_rate": Real(low = 1e-3, high = 1e-1, prior = 'log-uniform'),
+            }
 
-    '''
+
     earlystopping_keywargs = {"validation_every_n": 10,
                             "stop_on_validation": True,
                             "evaluator_object": evaluator_validation,
                             "lower_validations_allowed": 10,
                             "validation_metric": metric_to_optimize,
                             }
-    '''
 
     # In[29]:
 
 
-    from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIMElasticNetRecommender
+    from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython
     from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
-    recommender_class = MultiThreadSLIM_SLIMElasticNetRecommender
+    recommender_class = SLIM_BPR_Cython
 
     hyperparameterSearch = SearchBayesianSkopt(recommender_class,
                                             evaluator_validation=evaluator_validation)
@@ -101,24 +103,23 @@ if __name__ == '__main__':
         CONSTRUCTOR_POSITIONAL_ARGS = [URM_train],     # For a CBF model simply put [URM_train, ICM_train]
         CONSTRUCTOR_KEYWORD_ARGS = {},
         FIT_POSITIONAL_ARGS = [],
-        FIT_KEYWORD_ARGS = {}    # Additiona hyperparameters for the fit function
+        FIT_KEYWORD_ARGS = earlystopping_keywargs    # Additiona hyperparameters for the fit function
     )
 
 
     # In[ ]:
 
-    '''
+
     hyperparameterSearch.search(recommender_input_args,
                         hyperparameter_search_space = hyperparameters_range_dictionary,
                         n_cases = n_cases,
-                        resume_from_saved = True,
                         n_random_starts = n_random_starts,
                         output_folder_path = output_folder_path, # Where to save the results
                         output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
                         metric_to_optimize = metric_to_optimize,
                         cutoff_to_optimize = cutoff_to_optimize,
                         )
-    '''
+
 
     # In[ ]:
 
@@ -140,7 +141,7 @@ if __name__ == '__main__':
     # In[ ]:
 
 
-    recommender = MultiThreadSLIM_SLIMElasticNetRecommender(URM_all.tocsr())
+    recommender = SLIM_BPR_Cython(URM_all.tocsr())
     K = 10
 
     recommender.fit(**hyp)
@@ -181,7 +182,7 @@ if __name__ == '__main__':
     now = datetime.now() # current date and time
 
 
-    submission.to_csv('../subs/submission{:%Y_%m_%d %H_%M_%S}_SLIMURM.csv'.format(now), index=False)
+    submission.to_csv('../subs/submission {:%Y_%m_%d %H_%M_%S}_SLIMURM.csv'.format(now), index=False)
 
 
     # In[ ]:

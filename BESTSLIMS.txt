@@ -1,0 +1,2 @@
+{'topK': 681, 'l1_ratio': 1e-05, 'alpha': 0.12451933205498725, 'mw': 1.0, 'workers': 2} 3 0.246 (GENRE ONLY)
+{'topK': 2000, 'l1_ratio': 1e-05, 'alpha': 0.24119778249727328, 'mw': 1.0, 'workers': 2} 2 0.2436 (GENRE CHANNEL LENGTH)
