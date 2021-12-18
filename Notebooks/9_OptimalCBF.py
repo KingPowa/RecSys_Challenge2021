@@ -38,13 +38,13 @@ evaluator_validation = EvaluatorHoldout(URM_validation, cutoff_list=[10])
 
 import os
 
-output_folder_path = "../result_experiments/9_ItemKNN_genre"
+output_folder_path = "../result_experiments/9_ItemKNN_genre/"
 
 # If directory does not exist, create
 if not os.path.exists(output_folder_path):
     os.makedirs(output_folder_path)
     
-n_cases = 50
+n_cases = 60
 n_random_starts = int(n_cases*0.3)
 metric_to_optimize = "MAP"   
 cutoff_to_optimize = 10
@@ -56,8 +56,8 @@ cutoff_to_optimize = 10
 from skopt.space import Real, Integer, Categorical
 
 hyperparameters_range_dictionary = {
-    "shrink": Real(0, 1000),
-    "topK": Integer(50, 3000),
+    "shrink": Integer(0, 2000),
+    "topK": Integer(10, 3000),
     "feature_weighting": Categorical(["BM25", "TF-IDF", "none"]),
     "normalize": Categorical([True, False]),
 }

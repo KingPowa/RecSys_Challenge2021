@@ -1,0 +1,28 @@
+genre : 
+{"shrink": 1327, "topK": 622, "feature_weighting": "TF-IDF", "normalize": true}
+0.012453800636967672
+
+subgenre:
+{"shrink": 663, "topK": 10, "feature_weighting": "BM25", "normalize": false}
+0.020532637623909944
+
+channel:
+{"shrink": 2000, "topK": 382, "feature_weighting": "TF-IDF", "normalize": false}
+0.047488728600043134
+
+3bal:
+{"shrink": 948, "topK": 2750, "feature_weighting": "TF-IDF", "normalize": true}
+0.0029526444169929622
+
+3km:
+{"shrink": 2000, "topK": 10, "feature_weighting": "BM25", "normalize": false}
+0.01866383311348879
+
+5bal:
+{"shrink": 1188, "topK": 1156, "feature_weighting": "none", "normalize": true}
+0.004088546210413429
+
+5km:
+{"shrink": 1663, "topK": 10, "feature_weighting": "BM25", "normalize": true}
+0.01866383311348879
+

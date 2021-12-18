@@ -70,7 +70,7 @@ if __name__ == '__main__':
     from Recommenders.SLIM.SLIMElasticNetRecommender import SLIM_S_ElasticNetRecommender
     from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
-    recommender_class = SLIM_S_ElasticNetRecommender
+    recommender_class = SLIM_S_ElasticNetRecomender
 
     hyperparameterSearch = SearchBayesianSkopt(recommender_class,
                                             evaluator_validation=evaluator_validation)
