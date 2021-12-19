@@ -10,6 +10,7 @@ from Recommenders.BaseMatrixFactorizationRecommender import BaseMatrixFactorizat
 from Recommenders.Incremental_Training_Early_Stopping import Incremental_Training_Early_Stopping
 from Recommenders.Recommender_utils import check_matrix
 import numpy as np
+import scipy.sparse as sps
 
 
 class IALSRecommender(BaseMatrixFactorizationRecommender, Incremental_Training_Early_Stopping):
@@ -209,5 +210,37 @@ class IALSRecommender(BaseMatrixFactorizationRecommender, Incremental_Training_E
         else:
             return np.empty((num_factors, self.num_factors))
 
+class IALSRecommender_Hybrid(IALSRecommender):
 
+    RECOMMENDER_NAME = "IALSRecommender_Hybrid"
 
+    def __init__(self, URM_train, ICM,
+                 verbose = True,
+                 free_mem_threshold = 0.5):
+
+        self.ICM = check_matrix(ICM.copy(), 'csr', dtype=np.float32)
+        self.ICM = self.ICM.transpose()
+        self.ICM.eliminate_zeros()
+        self.URM_temp = URM_train
+        mat = sps.vstack((URM_train, self.ICM))
+        #print(mat.shape)
+        super(IALSRecommender_Hybrid, self).__init__(mat, verbose = verbose)
+        
+
+    def fit(self, epochs = 300,
+            num_factors = 20,
+            confidence_scaling = "linear",
+            alpha = 1.0,
+            epsilon = 1.0,
+            reg = 1e-3,
+            init_mean=0.0,
+            init_std=0.1,
+            mw = 0.5,
+            **earlystopping_kwargs):
+
+        
+        self.URM_train = sps.vstack((self.URM_temp*mw, self.ICM*(1-mw))).tocsr()
+        #print(self.URM_train.shape)
+        print(epochs)
+        super(IALSRecommender_Hybrid, self).fit(epochs=epochs, num_factors=num_factors, confidence_scaling=confidence_scaling, alpha=alpha, epsilon=epsilon, reg=reg, 
+        init_mean=init_mean, init_std=init_std,**earlystopping_kwargs)

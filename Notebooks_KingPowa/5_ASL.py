@@ -19,9 +19,6 @@ if __name__ == "__main__":
     np.random.seed(1234)
 
     URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
-    ICM_length_all = ld.getICMlength()
-
-    ICM_all = sps.hstack([ICM_genre_all, ICM_subgenre_all, ICM_length_all])
     # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8)
 
 
@@ -39,7 +36,7 @@ if __name__ == "__main__":
     # In[9]:
 
 
-    from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender_Hybrid
+    from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender
 
 
     # In[10]:
@@ -74,13 +71,12 @@ if __name__ == "__main__":
     AVAILABLE_CONFIDENCE_SCALING = ["linear", "log"]
             
     hyperparameters_range_dictionary = {
-                "num_factors": Integer(1, 200),
+                "num_factors": Integer(20, 700),
                 "epochs": Categorical([600]),
                 "confidence_scaling": Categorical(["linear", "log"]),
                 "alpha": Real(low = 1e-3, high = 50.0, prior = 'log-uniform'),
                 "epsilon": Real(low = 1e-3, high = 10.0, prior = 'log-uniform'),
-                "reg": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
-                "mw": Real(low=0.01, high=0.8, prior='log-uniform')
+                "reg": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform')
             }
 
     earlystopping_keywargs = {"validation_every_n": 5,
@@ -96,7 +92,7 @@ if __name__ == "__main__":
 
     from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
-    recommender_class = IALSRecommender_Hybrid
+    recommender_class = IALSRecommender
 
     hyperparameterSearch = SearchBayesianSkopt(recommender_class,
                                             evaluator_validation=evaluator_validation)
@@ -108,7 +104,7 @@ if __name__ == "__main__":
     from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
     
     recommender_input_args = SearchInputRecommenderArgs(
-        CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_all],     # For a CBF model simply put [URM_train, ICM_train]
+        CONSTRUCTOR_POSITIONAL_ARGS = [URM_train],     # For a CBF model simply put [URM_train, ICM_train]
         CONSTRUCTOR_KEYWORD_ARGS = {},
         FIT_POSITIONAL_ARGS = [],
         FIT_KEYWORD_ARGS = earlystopping_keywargs
@@ -147,9 +143,9 @@ if __name__ == "__main__":
     hyp
 
 
-    recommender = IALSRecommender_Hybrid(URM_all, ICM_all)
+    recommender = IALSRecommender(URM_all)
 
-    recommender.fit(hyp)
+    recommender.fit(**hyp)
 
 
     # In[ ]:
