@@ -159,7 +159,7 @@ class RP3betaRecommenderICM(RP3betaRecommender):
 
     RECOMMENDER_NAME = "RP3betaRecommenderICM"
 
-    def __init__(self, URM_train, ICM_train verbose = True):
+    def __init__(self, URM_train, ICM_train, verbose = True):
         super(RP3betaRecommenderICM, self).__init__(URM_train, verbose = verbose)
         self.ICM_train = check_matrix(ICM_train.copy().T, 'csr', dtype=np.float32)
         self.ICM_train.eliminate_zeros()
