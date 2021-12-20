@@ -68,8 +68,8 @@ hyperparameters_range_dictionary = {
     "epochs": Categorical([2000]),
     "lambda_i": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
     "lambda_j": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
-    "learning_rate": Real(low = 4e-4, high = 5e-1, prior = 'log-uniform'),
-    "topK": Integer(200, 800),
+    "learning_rate": Real(low = 4e-4, high = 1e-1, prior = 'log-uniform'),
+    "topK": Integer(200, 8000),
     "random_seed":Categorical([1234]),
     "sgd_mode": Categorical(["sgd", "adagrad", "adam"])
 }
@@ -85,10 +85,10 @@ earlystopping_keywargs = {"validation_every_n": 10,
 # In[29]:
 
 
-from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_S_BPR_Cython
+from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython
 from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
-recommender_class = SLIM_S_BPR_Cython
+recommender_class = SLIM_BPR_Cython
 
 hyperparameterSearch = SearchBayesianSkopt(recommender_class,
                                          evaluator_validation=evaluator_validation)
@@ -100,7 +100,7 @@ hyperparameterSearch = SearchBayesianSkopt(recommender_class,
 from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
   
 recommender_input_args = SearchInputRecommenderArgs(
-    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_genre_all],     # For a CBF model simply put [URM_train, ICM_train]
+    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train],     # For a CBF model simply put [URM_train, ICM_train]
     CONSTRUCTOR_KEYWORD_ARGS = {},
     FIT_POSITIONAL_ARGS = [],
     FIT_KEYWORD_ARGS = earlystopping_keywargs     # Additiona hyperparameters for the fit function
@@ -136,7 +136,7 @@ search_metadata.keys()
 
 
 hyp = search_metadata["hyperparameters_best"]
-hyperparameters_df
+hyp
 
 
 # In[ ]:
@@ -163,11 +163,10 @@ recommender_object.load_model(output_folder_path,
 # In[ ]:
 
 
-recommender = SLIM_S_BPR_Cython(URM_all.tocsr(), ICM_genre_all)
+recommender = SLIM_BPR_Cython(URM_all.tocsr())
 K = 10
 
-recommender.fit(epochs=hyp["epochs"], lambda_i=hyp["lambda_i"], lambda_j=hyp["lambda_j"], 
-                learning_rate=hyp["learning_rate"], topK=hyp["topK"], sgd_mode=hyp["sgd_mode"], random_seed=hyp["random_seed"])
+recommender.fit(**hyp)
 
 
 
