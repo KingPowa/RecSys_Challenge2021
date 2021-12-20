@@ -153,3 +153,26 @@ class RP3betaRecommender(BaseItemSimilarityMatrixRecommender):
 
 
         self.W_sparse = check_matrix(self.W_sparse, format='csr')
+
+class RP3betaRecommenderICM(RP3betaRecommender):
+    """ RP3beta recommender ICM based """
+
+    RECOMMENDER_NAME = "RP3betaRecommenderICM"
+
+    def __init__(self, URM_train, ICM_train verbose = True):
+        super(RP3betaRecommenderICM, self).__init__(URM_train, verbose = verbose)
+        self.ICM_train = check_matrix(ICM_train.copy().T, 'csr', dtype=np.float32)
+        self.ICM_train.eliminate_zeros()
+        self.URM_train = self.ICM_train
+        self.URM_original = URM_train
+
+
+    def __str__(self):
+        return "RP3beta(alpha={}, beta={}, min_rating={}, topk={}, implicit={}, normalize_similarity={})".format(self.alpha,
+                                                                                        self.beta, self.min_rating, self.topK,
+                                                                                        self.implicit, self.normalize_similarity)
+
+    def fit(self, **fit_args):
+        self.URM_train = self.ICM_train
+        super(RP3betaRecommenderICM, self).fit(**fit_args)
+        self.URM_train = self.URM_original
