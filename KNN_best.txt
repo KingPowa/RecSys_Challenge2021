@@ -26,3 +26,10 @@ channel:
 {"shrink": 1663, "topK": 10, "feature_weighting": "BM25", "normalize": true}
 0.01866383311348879
 
+7km:
+{"shrink": 1757, "topK": 10, "feature_weighting": "BM25", "normalize": false}
+0.018356756590099787
+
+9km:
+{"shrink": 2000, "topK": 10, "feature_weighting": "BM25", "normalize": false}
+0.015302303408108614
