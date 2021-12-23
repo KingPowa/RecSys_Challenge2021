@@ -43,7 +43,7 @@ if __name__ == '__main__':
                                     "TopPop": TopPop,
                                     # "GlobalEffects": GlobalEffects,
                                     # "SLIMBPR": SLIM_BPR_Cython,
-                                    # "IALS": IALSRecommender
+                                    "IALS": IALSRecommender
                                     }
 
     content_recommender_class = {"ItemKNNCBF": ItemKNNCBFRecommender,
@@ -71,6 +71,7 @@ if __name__ == '__main__':
 
     CF_optimal_hyperparameters = {
         'TopPop': {},
+        'IALS' : {"num_factors": 29, "epochs": 50, "confidence_scaling": "log", "alpha": 0.001, "epsilon": 0.001, "reg": 0.01},
         # 'GlobalEffects': {},
         'SLIMER':  {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
         'P3alpha': {'topK': 4834, 'alpha': 1.764994849187595, 'normalize_similarity': True, 'implicit': True},
