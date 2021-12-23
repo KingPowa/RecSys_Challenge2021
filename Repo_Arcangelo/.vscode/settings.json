@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "RecSysFramework/bin/python3.8",
+    "jupyter.jupyterServerType": "local"
+}
