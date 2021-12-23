@@ -53,9 +53,9 @@ if __name__ == '__main__':
         'genre' : {"shrink": 1327, "topK": 622, "feature_weighting": "TF-IDF", "normalize": True},
         'subgenre': {"shrink": 663, "topK": 10, "feature_weighting": "BM25", "normalize": False},
         'channel': {"shrink": 2000, "topK": 382, "feature_weighting": "TF-IDF", "normalize": False},
-        '3bal': {"shrink": 948, "topK": 2750, "feature_weighting": "TF-IDF", "normalize": True},
+        # '3bal': {"shrink": 948, "topK": 2750, "feature_weighting": "TF-IDF", "normalize": True},
         '3km': {"shrink": 2000, "topK": 10, "feature_weighting": "BM25", "normalize": False},
-        '5bal':{"shrink": 1188, "topK": 1156, "feature_weighting": "none", "normalize": True},
+        # '5bal':{"shrink": 1188, "topK": 1156, "feature_weighting": "none", "normalize": True},
         '5km': {"shrink": 1663, "topK": 10, "feature_weighting": "BM25", "normalize": True},
     }
 
@@ -63,9 +63,9 @@ if __name__ == '__main__':
         'genre' : ICM_genre_all,
         'subgenre': ICM_subgenre_all,
         'channel': ICM_channel_all,
-        '3bal': ICM_length_all_3bal,
+        # '3bal': ICM_length_all_3bal,
         '3km': ICM_length_all_3km,
-        '5bal': ICM_length_all_5bal,
+        # '5bal': ICM_length_all_5bal,
         '5km': ICM_length_all_5km,
     }
 
