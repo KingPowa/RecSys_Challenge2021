@@ -34,7 +34,7 @@ output_folder_path = "result_experiments/S-SLIM_BPR/"
 if not os.path.exists(output_folder_path):
     os.makedirs(output_folder_path)
     
-n_cases = 10  # using 10 as an example
+n_cases = 50  # using 10 as an example
 n_random_starts = int(n_cases*0.3)
 metric_to_optimize = "MAP"   
 cutoff_to_optimize = 10
@@ -118,6 +118,7 @@ hyperparameterSearch.search(recommender_input_args,
                        output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
                        metric_to_optimize = metric_to_optimize,
                        cutoff_to_optimize = cutoff_to_optimize,
+		       resume_from_saved = True
                       )
 
 

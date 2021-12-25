@@ -1,0 +1,1 @@
+{"epochs": 640, "lambda_i": 0.0009173246430835313, "lambda_j": 0.0013341708466002205, "learning_rate": 0.0066067616232977034, "topK": 3976, "random_seed": 1234, "sgd_mode": "sgd"}
