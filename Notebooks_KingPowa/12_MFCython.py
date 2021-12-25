@@ -86,7 +86,7 @@ if __name__ == "__main__":
     # In[29]:
 
 
-    from Recommenders.MatrixFactorization.Cython.MatrixFactorization_BPR_Cython import MatrixFactorization_BPR_Cython_Hybrid
+    from Recommenders.MatrixFactorization.Cython.MatrixFactorization_Cython import MatrixFactorization_BPR_Cython_Hybrid
     from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
     recommender_class = MatrixFactorization_BPR_Cython_Hybrid
