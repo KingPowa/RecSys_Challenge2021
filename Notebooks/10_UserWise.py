@@ -30,9 +30,11 @@ if __name__ == '__main__':
     from Recommenders.KNN.ItemKNNCBFRecommender import ItemKNNCBFRecommender
     from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython
     from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIMElasticNetRecommender
+    from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIM_S_ElasticNetRecommender
     from Recommenders.GraphBased.P3alphaRecommender import P3alphaRecommender
     from Recommenders.GraphBased.RP3betaRecommender import RP3betaRecommender
     from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender
+    from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender_Hybrid
 
     MAP_recommender_per_group = {}
 
@@ -46,8 +48,16 @@ if __name__ == '__main__':
                                     "IALS": IALSRecommender
                                     }
 
-    content_recommender_class = {"ItemKNNCBF": ItemKNNCBFRecommender,
+    content_recommender_class = {"ItemKNNCBF": ItemKNNCBFRecommender   
                                 }
+
+    hybrid_recommender_class = {"IALSHyb": IALSRecommender_Hybrid,
+                                "SLIMgensub" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender
+    }
+
+    hybrid_recommender_matrices = {"IALSHyb": 'icm_all',
+                                   "SLIMgensub": 'icm_genre_subgenre'
+    }
     
     KNN_optimal_hyperparameters = {
         'genre' : {"shrink": 1327, "topK": 622, "feature_weighting": "TF-IDF", "normalize": True},
@@ -69,16 +79,28 @@ if __name__ == '__main__':
         '5km': ICM_length_all_5km,
     }
 
+    hybrid_ICMS = {
+        'icm_all': hstack([ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_length_all_5km]),
+        'icm_genre_subgenre': hstack([ICM_genre_all, ICM_subgenre_all])
+    }
+
     CF_optimal_hyperparameters = {
         'TopPop': {},
         'IALS' : {"num_factors": 29, "epochs": 50, "confidence_scaling": "log", "alpha": 0.001, "epsilon": 0.001, "reg": 0.01},
         # 'GlobalEffects': {},
+        'SLIMgensub': {"l1_ratio" : 0.025887359156206147, "topK": 2140, "alpha": 0.009567288586539689, "workers": 8, "mw": 1},
         'SLIMER':  {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
         'P3alpha': {'topK': 4834, 'alpha': 1.764994849187595, 'normalize_similarity': True, 'implicit': True},
         'RP3beta': {'topK': 100, 'alpha': 1.0042367418834082, 'beta': 0.6027649914044608, 'normalize_similarity': True, 'implicit': True},
+        'IALSHyb': {"num_factors": 28, "epochs": 10, "confidence_scaling": "linear", "alpha": 0.43657990940994623, "epsilon": 0.35472063248578317, "reg": 0.0001698292271931609, "mw": 0.06122362507952762}
     }
 
     recommender_object_dict = {}
+
+    for label, recommender_class in hybrid_recommender_class.items():
+        recommender_object = recommender_class(URM_train, hybrid_ICMS[hybrid_recommender_matrices[label]])
+        recommender_object.fit(**CF_optimal_hyperparameters[label])
+        recommender_object_dict[label] = recommender_object
 
     for label, recommender_class in collaborative_recommender_class.items():
         recommender_object = recommender_class(URM_train)

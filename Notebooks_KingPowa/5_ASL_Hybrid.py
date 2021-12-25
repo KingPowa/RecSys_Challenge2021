@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
 
     from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
-    
+
     recommender_input_args = SearchInputRecommenderArgs(
         CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_all],     # For a CBF model simply put [URM_train, ICM_train]
         CONSTRUCTOR_KEYWORD_ARGS = {},

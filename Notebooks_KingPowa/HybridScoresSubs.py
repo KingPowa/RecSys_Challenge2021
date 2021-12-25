@@ -63,9 +63,9 @@ if __name__ == "__main__":
 
     from Recommenders.KNN.ItemKNNScoresHybridMultipleRecommender import ItemKNNScoresHybridMultipleRecommender
 
-    recommender1 = MultiThreadSLIM_SLIMElasticNetRecommender(URM_train.tocsr())
-    recommender2 = IALSRecommender(URM_train.tocsr())
-    recommender3 = RP3betaRecommender(URM_train.tocsr())
+    recommender1 = MultiThreadSLIM_SLIMElasticNetRecommender(URM_all.tocsr())
+    recommender2 = IALSRecommender(URM_all.tocsr())
+    recommender3 = RP3betaRecommender(URM_all.tocsr())
 
     ofp = "temp/"
 
@@ -82,18 +82,9 @@ if __name__ == "__main__":
         }
 
 
-    if not os.path.exists(ofp):
-        os.makedirs(ofp)
-        recommender1.fit(**CF_opt_hyp['SLIMER'])
-        recommender2.fit(**CF_opt_hyp['IALS'])
-        recommender3.fit(**CF_opt_hyp['RP3beta'])
-        recommender1.save_model(output_folder_path, 'SLIM')
-        recommender2.save_model(output_folder_path, 'IALS')
-        recommender3.save_model(output_folder_path, 'RP3B')
-    else:
-        recommender1.load_model(output_folder_path, 'SLIM')
-        recommender2.load_model(output_folder_path, 'IALS')
-        recommender3.load_model(output_folder_path, 'RP3B')
+    recommender1.fit(**CF_opt_hyp['SLIMER'])
+    recommender2.fit(**CF_opt_hyp['IALS'])
+    recommender3.fit(**CF_opt_hyp['RP3beta'])
 
     recommender_final = ItemKNNScoresHybridMultipleRecommender(URM_all, recommender1, recommender2, recommender3)
     recommender_final.fit(**CF_opt_hyp['hybrid'])
