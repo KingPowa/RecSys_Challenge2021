@@ -167,6 +167,27 @@ class MatrixFactorization_BPR_Cython(_MatrixFactorization_Cython):
 
         super(MatrixFactorization_BPR_Cython, self).fit(**key_args)
 
+class MatrixFactorization_BPR_Cython_Hybrid(MatrixFactorization_BPR_Cython):
+    """
+    Subclas allowing only for MF BPR
+    """
+
+    RECOMMENDER_NAME = "MatrixFactorization_BPR_Cython_Recommender"
+
+    def __init__(self, ICM, *pos_args, **key_args):
+        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(*pos_args, algorithm_name="MF_BPR", **key_args)
+        self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
+        self.ICM.eliminate_zeros()
+        self.URM_train_original = self.URM_train
+
+    def fit(self, **key_args):
+
+        self.URM_train = sps.vstack((self.URM_train_original, self.ICM))
+
+        super(MatrixFactorization_BPR_Cython_Hybrid, self).fit(**key_args)
+
+        self.URM_train = self.URM_train_original
+
 
 
 

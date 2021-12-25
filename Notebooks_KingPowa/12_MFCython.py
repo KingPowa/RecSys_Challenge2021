@@ -19,6 +19,8 @@ if __name__ == "__main__":
     import Basics.Load as ld
 
     URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
+    ICM_length_all = ld.getICMlength()
+    ICM_all = sps.hstack([ICM_genre_all, ICM_channel_all, ICM_length_all])
     # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8)
 
 
@@ -27,15 +29,13 @@ if __name__ == "__main__":
 
     import os
 
-    output_folder_path = "../result_experiments/Neural/"
+    output_folder_path = "../result_experiments/Cython_MFBPR/"
 
     # If directory does not exist, create
     if not os.path.exists(output_folder_path):
         os.makedirs(output_folder_path)
-
-    n_items = ICM_genre_all.shape[0]
         
-    n_cases = 50  # using 10 as an example
+    n_cases = 30  # using 10 as an example
     n_random_starts = int(n_cases*0.3)
     metric_to_optimize = "MAP"   
     cutoff_to_optimize = 10
@@ -66,21 +66,16 @@ if __name__ == "__main__":
     from skopt.space import Real, Integer, Categorical
 
     hyperparameters_range_dictionary = {
-                "epochs": Categorical([300]),
-                "learning_rate": Real(low=1e-6, high=1e-2, prior="log-uniform"),
-                "l2_reg": Real(low=1e-6, high=1e-2, prior="log-uniform"),
-                "dropout": Real(low=0., high=0.8, prior="uniform"),
-                "total_anneal_steps": Integer(100000, 600000),
-                "anneal_cap": Real(low=0., high=0.6, prior="uniform"),
-                "batch_size": Categorical([128, 256, 512, 1024]),
-                "encoding_size": Integer(1, min(512, n_items)),
-                "next_layer_size_multiplier": Integer(2, 10),
-                "max_n_hidden_layers": Integer(1, 4),
-                # Reduce max_layer_size if estimated last layer weights size exceeds 2 GB
-                "max_layer_size": Categorical([min(5*1e3, int(2*1e9*8/64/n_items))]),
+                "sgd_mode": Categorical(["sgd", "adagrad", "adam"]),
+                "epochs": Categorical([3000]),
+                "num_factors": Integer(1, 200),
+                "batch_size": Categorical([1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]),
+                "positive_reg": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
+                "negative_reg": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
+                "learning_rate": Real(low = 1e-4, high = 1e-1, prior = 'log-uniform'),
             }
 
-    earlystopping_keywargs = {"validation_every_n": 5,
+    earlystopping_keywargs = {"validation_every_n": 15,
                             "stop_on_validation": True,
                             "evaluator_object": evaluator_validation,
                             "lower_validations_allowed": 5,
@@ -91,10 +86,10 @@ if __name__ == "__main__":
     # In[29]:
 
 
-    from Recommenders.Neural.MultVAERecommender import MultVAERecommender_OptimizerMask
+    from Recommenders.MatrixFactorization.Cython.MatrixFactorization_BPR_Cython import MatrixFactorization_BPR_Cython_Hybrid
     from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
-    recommender_class = MultVAERecommender_OptimizerMask
+    recommender_class = MatrixFactorization_BPR_Cython_Hybrid
 
     hyperparameterSearch = SearchBayesianSkopt(recommender_class,
                                             evaluator_validation=evaluator_validation)
@@ -106,7 +101,7 @@ if __name__ == "__main__":
     from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
     
     recommender_input_args = SearchInputRecommenderArgs(
-        CONSTRUCTOR_POSITIONAL_ARGS = [URM_train],     # For a CBF model simply put [URM_train, ICM_train]
+        CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_all],     # For a CBF model simply put [URM_train, ICM_train]
         CONSTRUCTOR_KEYWORD_ARGS = {},
         FIT_POSITIONAL_ARGS = [],
         FIT_KEYWORD_ARGS = earlystopping_keywargs     # Additiona hyperparameters for the fit function
