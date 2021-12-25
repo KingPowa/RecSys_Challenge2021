@@ -15,6 +15,7 @@ from Recommenders.Incremental_Training_Early_Stopping import Incremental_Trainin
 from CythonCompiler.run_compile_subprocess import run_compile_subprocess
 import os, sys
 import scipy.sparse as sps
+import numpy as np
 
 def estimate_required_MB(n_items, symmetric):
 

@@ -14,6 +14,7 @@ from Recommenders.Recommender_utils import check_matrix
 from CythonCompiler.run_compile_subprocess import run_compile_subprocess
 import sys
 import numpy as np
+import scipy.sparse as sps
 
 
 class _MatrixFactorization_Cython(BaseMatrixFactorizationRecommender, Incremental_Training_Early_Stopping):
@@ -174,11 +175,11 @@ class MatrixFactorization_BPR_Cython_Hybrid(MatrixFactorization_BPR_Cython):
 
     RECOMMENDER_NAME = "MatrixFactorization_BPR_Cython_Recommender"
 
-    def __init__(self, ICM, **key_args):
-        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(**key_args)
+    def __init__(self, ICM, *pos_args, **key_args):
+        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(*pos_args, **key_args)
         self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
         self.ICM.eliminate_zeros()
-        self.URM_train_original = self.URM_train
+        self.URM_train_original = URM_train
 
     def fit(self, **key_args):
 
