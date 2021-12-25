@@ -174,8 +174,8 @@ class MatrixFactorization_BPR_Cython_Hybrid(MatrixFactorization_BPR_Cython):
 
     RECOMMENDER_NAME = "MatrixFactorization_BPR_Cython_Recommender"
 
-    def __init__(self, ICM, *pos_args, **key_args):
-        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(*pos_args, algorithm_name="MF_BPR", **key_args)
+    def __init__(self, ICM, **key_args):
+        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(**key_args)
         self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
         self.ICM.eliminate_zeros()
         self.URM_train_original = self.URM_train

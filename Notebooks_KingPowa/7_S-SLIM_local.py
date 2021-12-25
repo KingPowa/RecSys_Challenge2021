@@ -86,10 +86,10 @@ earlystopping_keywargs = {"validation_every_n": 13,
 # In[29]:
 
 
-from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython
+from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython_Hybrid
 from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
-recommender_class = SLIM_BPR_Cython
+recommender_class = SLIM_BPR_Cython_Hybrid
 
 hyperparameterSearch = SearchBayesianSkopt(recommender_class,
                                          evaluator_validation=evaluator_validation)
