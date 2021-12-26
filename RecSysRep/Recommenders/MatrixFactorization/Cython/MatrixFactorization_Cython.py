@@ -158,8 +158,8 @@ class MatrixFactorization_BPR_Cython(_MatrixFactorization_Cython):
 
     RECOMMENDER_NAME = "MatrixFactorization_BPR_Cython_Recommender"
 
-    def __init__(self, *pos_args, **key_args):
-        super(MatrixFactorization_BPR_Cython, self).__init__(*pos_args, algorithm_name="MF_BPR", **key_args)
+    def __init__(self,  URM_train, verbose = True):
+        super(MatrixFactorization_BPR_Cython, self).__init__(URM_train = URM_train, algorithm_name="MF_BPR", verbose = verbose)
 
     def fit(self, **key_args):
 
@@ -175,11 +175,11 @@ class MatrixFactorization_BPR_Cython_Hybrid(MatrixFactorization_BPR_Cython):
 
     RECOMMENDER_NAME = "MatrixFactorization_BPR_Cython_Recommender"
 
-    def __init__(self, ICM, *pos_args, **key_args):
-        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(*pos_args, **key_args)
+    def __init__(self, URM_train, ICM, verbose = True):
+        super(MatrixFactorization_BPR_Cython_Hybrid, self).__init__(URM_train = URM_train, verbose = verbose)
         self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
         self.ICM.eliminate_zeros()
-        self.URM_train_original = URM_train
+        self.URM_train_original = self.URM_train
 
     def fit(self, **key_args):
 

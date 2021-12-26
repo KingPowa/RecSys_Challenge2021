@@ -124,6 +124,7 @@ if __name__ == "__main__":
                         output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
                         metric_to_optimize = metric_to_optimize,
                         cutoff_to_optimize = cutoff_to_optimize,
+                        resume_from_saved = True
                         )
 
 

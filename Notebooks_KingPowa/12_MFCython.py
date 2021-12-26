@@ -35,7 +35,7 @@ if __name__ == "__main__":
     if not os.path.exists(output_folder_path):
         os.makedirs(output_folder_path)
         
-    n_cases = 30  # using 10 as an example
+    n_cases = 100  # using 10 as an example
     n_random_starts = int(n_cases*0.3)
     metric_to_optimize = "MAP"   
     cutoff_to_optimize = 10
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
     
     recommender_input_args = SearchInputRecommenderArgs(
-        CONSTRUCTOR_POSITIONAL_ARGS = [ICM_all, URM_train],     # For a CBF model simply put [URM_train, ICM_train]
+        CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_all],     # For a CBF model simply put [URM_train, ICM_train]
         CONSTRUCTOR_KEYWORD_ARGS = {},
         FIT_POSITIONAL_ARGS = [],
         FIT_KEYWORD_ARGS = earlystopping_keywargs     # Additiona hyperparameters for the fit function
@@ -119,6 +119,7 @@ if __name__ == "__main__":
                         output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
                         metric_to_optimize = metric_to_optimize,
                         cutoff_to_optimize = cutoff_to_optimize,
+                        resume_from_saved = True
                         )
 
 

@@ -1,0 +1,8 @@
+SearchBayesianSkopt: New best config found. Config 0: {'alpha': 0.36613455447750615, 'beta': 0.46368697428912226} - results: MAP: 0.2470805, 
+SearchBayesianSkopt: Config 1 is suboptimal. Config: {'alpha': 0.09088923498721897, 'beta': 0.2842569716852208} - results: MAP: 0.2381365, 
+SearchBayesianSkopt: Config 2 is suboptimal. Config: {'alpha': 0.05774597639195396, 'beta': 0.20774394811838132} - results: MAP: 0.2343237, 
+SearchBayesianSkopt: New best config found. Config 3: {'alpha': 0.47093922309478026, 'beta': 0.040989439280417546} - results: MAP: 0.2477507, 
+SearchBayesianSkopt: Config 4 is suboptimal. Config: {'alpha': 0.2513011661480348, 'beta': 0.4154504520921058} - results: MAP: 0.2453308, 
+SearchBayesianSkopt: New best config found. Config 5: {'alpha': 0.44811842350401193, 'beta': 0.2999185882280602} - results: MAP: 0.2489238, 
+SearchBayesianSkopt: Config 6 is suboptimal. Config: {'alpha': 0.1188801122916611, 'beta': 0.18162569431984518} - results: MAP: 0.2374980, 
+SearchBayesianSkopt: Config 7 is suboptimal. Config: {'alpha': 0.2231057042203029, 'beta': 0.49603438268643146} - results: MAP: 0.2443297, 

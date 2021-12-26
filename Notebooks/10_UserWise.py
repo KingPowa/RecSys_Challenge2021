@@ -91,7 +91,7 @@ if __name__ == '__main__':
         'SLIMgensub': {"l1_ratio" : 0.025887359156206147, "topK": 2140, "alpha": 0.009567288586539689, "workers": 8, "mw": 1},
         'SLIMER':  {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
         'P3alpha': {'topK': 4834, 'alpha': 1.764994849187595, 'normalize_similarity': True, 'implicit': True},
-        'RP3beta': {'topK': 100, 'alpha': 1.0042367418834082, 'beta': 0.6027649914044608, 'normalize_similarity': True, 'implicit': True},
+        'RP3beta': {"topK": 200, "alpha": 0.6010744269010616, "beta": 0.5798489030617233, "normalize_similarity": true, "implicit": true},
         'IALSHyb': {"num_factors": 28, "epochs": 10, "confidence_scaling": "linear", "alpha": 0.43657990940994623, "epsilon": 0.35472063248578317, "reg": 0.0001698292271931609, "mw": 0.06122362507952762}
     }
 

@@ -1,0 +1,638 @@
+SearchBayesianSkopt: Config 0 Exception. Config: {'norm': -inf, 'alpha': 0.469973231941256, 'beta': 0.2659599414959887} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 1 Exception. Config: {'norm': 2.0, 'alpha': 0.18827627468199756, 'beta': 0.2730551470404263} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 2 Exception. Config: {'norm': inf, 'alpha': 0.1953213612979922, 'beta': 0.11449582887903062} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 3 Exception. Config: {'norm': 2.0, 'alpha': 0.19973137681109687, 'beta': 0.3428248928939939} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 4 Exception. Config: {'norm': 2.0, 'alpha': 0.46975245574742613, 'beta': 0.3016837313488287} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 5 Exception. Config: {'norm': inf, 'alpha': 0.42846098460934917, 'beta': 0.1398236416630581} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 6 Exception. Config: {'norm': inf, 'alpha': 0.2943424284391272, 'beta': 0.3035498062146086} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 7 Exception. Config: {'norm': 1.0, 'alpha': 0.3365848986611614, 'beta': 0.016434237161022994} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 8 Exception. Config: {'norm': 1.0, 'alpha': 0.2925630973882326, 'beta': 0.04599451760862135} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 9 Exception. Config: {'norm': 2.0, 'alpha': 0.35587804115356253, 'beta': 0.18639650024780646} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 10 Exception. Config: {'norm': -inf, 'alpha': 0.05713522441201022, 'beta': 0.4929186927163939} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 11 Exception. Config: {'norm': 2.0, 'alpha': 0.09469266546421433, 'beta': 0.2566152086634351} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 12 Exception. Config: {'norm': inf, 'alpha': 0.011276822019033907, 'beta': 0.3932048281565358} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 13 Exception. Config: {'norm': 2.0, 'alpha': 0.29398927295543376, 'beta': 0.08277870004191461} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 14 Exception. Config: {'norm': inf, 'alpha': 0.06668452943633203, 'beta': 0.3436766175914742} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 15 Exception. Config: {'norm': -inf, 'alpha': 0.3861350447332446, 'beta': 0.4459683333269099} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 16 Exception. Config: {'norm': 2.0, 'alpha': 0.30747449564338214, 'beta': 0.06601134432017841} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 17 Exception. Config: {'norm': 2.0, 'alpha': 0.3997960672843792, 'beta': 0.016155791537024965} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 18 Exception. Config: {'norm': 2.0, 'alpha': 0.1057095351175138, 'beta': 0.18093725138528247} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 19 Exception. Config: {'norm': 2.0, 'alpha': 0.15389251275683866, 'beta': 0.11012874006799699} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 20 Exception. Config: {'norm': -inf, 'alpha': 0.4666383780520296, 'beta': 0.3580653754415458} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 21 Exception. Config: {'norm': 2.0, 'alpha': 0.05880639967454928, 'beta': 0.053026757843889896} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 22 Exception. Config: {'norm': -inf, 'alpha': 0.08105885942736674, 'beta': 0.45093956481065567} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 23 Exception. Config: {'norm': inf, 'alpha': 0.48810710642053307, 'beta': 0.28009774766172646} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 24 Exception. Config: {'norm': -inf, 'alpha': 0.19238133037235167, 'beta': 0.03764305393423137} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 25 Exception. Config: {'norm': 1.0, 'alpha': 0.3282790988045691, 'beta': 0.2726837857645198} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 26 Exception. Config: {'norm': 2.0, 'alpha': 0.1726434531830825, 'beta': 0.03614267779296084} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 27 Exception. Config: {'norm': -inf, 'alpha': 0.18570120441458438, 'beta': 0.25945753048705317} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 28 Exception. Config: {'norm': 2.0, 'alpha': 0.30412726454313344, 'beta': 0.3642856941571934} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 29 Exception. Config: {'norm': 2.0, 'alpha': 0.3630030342862914, 'beta': 0.24454826490566597} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 30 Exception. Config: {'norm': 2.0, 'alpha': 0.04556887496574218, 'beta': 0.1697197049865246} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 31 Exception. Config: {'norm': inf, 'alpha': 0.45646569146237864, 'beta': 0.4854946889811118} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 32 Exception. Config: {'norm': 2.0, 'alpha': 0.1844642111517834, 'beta': 0.04701209263012227} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 33 Exception. Config: {'norm': -inf, 'alpha': 0.08829049396174767, 'beta': 0.2544775412230286} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 34 Exception. Config: {'norm': 1.0, 'alpha': 0.30806003501875556, 'beta': 0.46129686246365265} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 35 Exception. Config: {'norm': -inf, 'alpha': 0.003935703547511705, 'beta': 0.43870683789022447} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 36 Exception. Config: {'norm': 2.0, 'alpha': 0.03963918730152521, 'beta': 0.17239119915684906} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 37 Exception. Config: {'norm': 1.0, 'alpha': 0.3038939171177548, 'beta': 0.416365728580111} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 38 Exception. Config: {'norm': inf, 'alpha': 0.2152000297138978, 'beta': 0.16016708972327656} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 39 Exception. Config: {'norm': inf, 'alpha': 0.23290907839448216, 'beta': 0.45127665723727606} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 40 Exception. Config: {'norm': -inf, 'alpha': 0.4575864513272199, 'beta': 0.10052990619696112} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 41 Exception. Config: {'norm': 1.0, 'alpha': 0.40864529747240425, 'beta': 0.13805414467437416} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 42 Exception. Config: {'norm': 2.0, 'alpha': 0.3201927372221342, 'beta': 0.40146032918130725} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 43 Exception. Config: {'norm': inf, 'alpha': 0.03922632074341225, 'beta': 0.041298556449828314} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 44 Exception. Config: {'norm': -inf, 'alpha': 0.4046105964774364, 'beta': 0.45201074397528035} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 45 Exception. Config: {'norm': 1.0, 'alpha': 0.07408049973920705, 'beta': 0.07690353949684742} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 46 Exception. Config: {'norm': 2.0, 'alpha': 0.47287219233051425, 'beta': 0.25742738318087377} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 332, in _evaluate_on_validation
+    recommender_instance, train_time = self._fit_model(current_fit_hyperparameters)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 301, in _fit_model
+    recommender_instance = self.recommender_class(*self.recommender_input_args.CONSTRUCTOR_POSITIONAL_ARGS,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 79, in __init__
+    super(TwoDifferentModelRecommender, self).__init__(URM_train)
+TypeError: super(type, obj): obj must be an instance or subtype of type
+
+SearchBayesianSkopt: Config 0 Exception. Config: {'norm': 1.0, 'alpha': 0.3217114038082765, 'beta': 0.4115466537006298} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 336, in _evaluate_on_validation
+    result_df, _ = self.evaluator_validation.evaluateRecommender(recommender_instance)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Evaluation\Evaluator.py", line 271, in evaluateRecommender
+    results_dict = self._run_evaluation_on_selected_users(recommender_object, self.users_to_evaluate)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Evaluation\Evaluator.py", line 481, in _run_evaluation_on_selected_users
+    recommended_items_batch_list, scores_batch = recommender_object.recommend(test_user_batch_array,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\BaseRecommender.py", line 147, in recommend
+    scores_batch = self._compute_item_score(user_id_array, items_to_compute=items_to_compute)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 99, in _compute_item_score
+    item_weights_3 = self.recommender_3._compute_item_score(user_id_array)
+AttributeError: 'ThreeDifferentModelRecommender' object has no attribute 'recommender_3'
+
+SearchBayesianSkopt: Config 1 Exception. Config: {'norm': -inf, 'alpha': 0.3884687838515841, 'beta': 0.1261039918344124} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 336, in _evaluate_on_validation
+    result_df, _ = self.evaluator_validation.evaluateRecommender(recommender_instance)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Evaluation\Evaluator.py", line 271, in evaluateRecommender
+    results_dict = self._run_evaluation_on_selected_users(recommender_object, self.users_to_evaluate)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Evaluation\Evaluator.py", line 481, in _run_evaluation_on_selected_users
+    recommended_items_batch_list, scores_batch = recommender_object.recommend(test_user_batch_array,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\BaseRecommender.py", line 147, in recommend
+    scores_batch = self._compute_item_score(user_id_array, items_to_compute=items_to_compute)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 99, in _compute_item_score
+    item_weights_3 = self.recommender_3._compute_item_score(user_id_array)
+AttributeError: 'ThreeDifferentModelRecommender' object has no attribute 'recommender_3'
+
+SearchBayesianSkopt: Config 2 Exception. Config: {'norm': 2.0, 'alpha': 0.46945033711341033, 'beta': 0.2453629428572979} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 464, in _objective_function
+    result_df, recommender_instance = self._evaluate_on_validation(current_fit_hyperparameters_dict, was_already_evaluated_flag, was_already_evaluated_index)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 336, in _evaluate_on_validation
+    result_df, _ = self.evaluator_validation.evaluateRecommender(recommender_instance)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Evaluation\Evaluator.py", line 271, in evaluateRecommender
+    results_dict = self._run_evaluation_on_selected_users(recommender_object, self.users_to_evaluate)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Evaluation\Evaluator.py", line 481, in _run_evaluation_on_selected_users
+    recommended_items_batch_list, scores_batch = recommender_object.recommend(test_user_batch_array,
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\BaseRecommender.py", line 147, in recommend
+    scores_batch = self._compute_item_score(user_id_array, items_to_compute=items_to_compute)
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\HybridScores\DifferentStructure.py", line 99, in _compute_item_score
+    item_weights_3 = self.recommender_3._compute_item_score(user_id_array)
+AttributeError: 'ThreeDifferentModelRecommender' object has no attribute 'recommender_3'
+
+SearchBayesianSkopt: New best config found. Config 0: {'norm': inf, 'alpha': 0.37438834758290734, 'beta': 0.30900233169626934} - results: MAP: 0.2453469, 
+SearchBayesianSkopt: Config 0 Exception. Config: {'norm': inf, 'alpha': 0.37438834758290734, 'beta': 0.30900233169626934} - Exception: Traceback (most recent call last):
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\HyperparameterTuning\SearchAbstractClass.py", line 530, in _objective_function
+    recommender_instance.save_model(self.output_folder_path, file_name =self.output_file_name_root + "_best_model")
+  File "C:\Programmi\Programmazione\Resources\GitHub\RecSys_Challenge2021\Notebooks_HybridsRatings_KingPowa\../RecSysRep\Recommenders\BaseRecommender.py", line 221, in save_model
+    raise NotImplementedError("BaseRecommender: save_model not implemented")
+NotImplementedError: BaseRecommender: save_model not implemented
+
+SearchBayesianSkopt: Config 1 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.2057581534846291, 'beta': 0.39117852945118814} - results: MAP: 0.2417308, 
+SearchBayesianSkopt: Config 2 is suboptimal. Config: {'norm': inf, 'alpha': 0.013640432989249296, 'beta': 0.006725734811396098} - results: MAP: 0.2201620, 
+SearchBayesianSkopt: New best config found. Config 0: {'norm': inf, 'alpha': 0.13458091491184931, 'beta': 0.43721769208134126} - results: MAP: 0.2390580, 
+SearchBayesianSkopt: Config 1 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.04539854647697055, 'beta': 0.11628455327747736} - results: MAP: 0.2251794, 
+SearchBayesianSkopt: New best config found. Config 2: {'norm': 2.0, 'alpha': 0.26136326131972526, 'beta': 0.35887001457109113} - results: MAP: 0.2416835, 
+SearchBayesianSkopt: New best config found. Config 3: {'norm': inf, 'alpha': 0.41671969974130757, 'beta': 0.33139160346226254} - results: MAP: 0.2466998, 
+SearchBayesianSkopt: Config 4 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.3150145069256109, 'beta': 0.48117009218640844} - results: MAP: 0.2453920, 
+SearchBayesianSkopt: Config 5 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.3707499840530873, 'beta': 0.4886355280570976} - results: MAP: 0.2464798, 
+SearchBayesianSkopt: Config 6 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.29704079496875213, 'beta': 0.27052222321244507} - results: MAP: 0.2413432, 
+SearchBayesianSkopt: Config 7 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.12353057075731713, 'beta': 0.056249616331720625} - results: MAP: 0.2267475, 
+SearchBayesianSkopt: Config 8 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.38908155780965026, 'beta': 0.005270415078097999} - results: MAP: 0.2370407, 
+SearchBayesianSkopt: Config 9 is suboptimal. Config: {'norm': -inf, 'alpha': 0.24312775120992647, 'beta': 0.020960250442310743} - results: MAP: 0.2363712, 
+SearchBayesianSkopt: Config 10 is suboptimal. Config: {'norm': -inf, 'alpha': 0.15985405991789767, 'beta': 0.07948823166826094} - results: MAP: 0.2333902, 
+SearchBayesianSkopt: Config 11 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.1981886638512263, 'beta': 0.20394463369263005} - results: MAP: 0.2374472, 
+SearchBayesianSkopt: Config 12 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.3273674788245203, 'beta': 0.2977533085301688} - results: MAP: 0.2430318, 
+SearchBayesianSkopt: New best config found. Config 13: {'norm': inf, 'alpha': 0.498068775827668, 'beta': 0.4726237040268217} - results: MAP: 0.2478174, 
+SearchBayesianSkopt: Config 14 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.1286476129036588, 'beta': 0.49295834920433873} - results: MAP: 0.2389345, 
+SearchBayesianSkopt: Config 15 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.49029491467684216, 'beta': 0.1905903165309532} - results: MAP: 0.2461956, 
+SearchBayesianSkopt: Config 16 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.17445140766827233, 'beta': 0.001708921986248037} - results: MAP: 0.2290093, 
+SearchBayesianSkopt: Config 17 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.03362761940533894, 'beta': 0.4907575769647602} - results: MAP: 0.2350927, 
+SearchBayesianSkopt: Config 18 is suboptimal. Config: {'norm': inf, 'alpha': 0.2732670141077948, 'beta': 0.1879548703413551} - results: MAP: 0.2392859, 
+SearchBayesianSkopt: Config 19 is suboptimal. Config: {'norm': inf, 'alpha': 0.044275734306829684, 'beta': 0.33041356221510143} - results: MAP: 0.2327328, 
+SearchBayesianSkopt: Config 20 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.268660539721856, 'beta': 0.32631915542976825} - results: MAP: 0.2429101, 
+SearchBayesianSkopt: Config 21 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.26286090617043356, 'beta': 0.10397714200052102} - results: MAP: 0.2374071, 
+SearchBayesianSkopt: Config 22 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.11069873160428256, 'beta': 0.3738781615899913} - results: MAP: 0.2373570, 
+SearchBayesianSkopt: Config 23 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.07074617549793165, 'beta': 0.4807363992802111} - results: MAP: 0.2364186, 
+SearchBayesianSkopt: Config 24 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.32233924504966227, 'beta': 0.11840617501683111} - results: MAP: 0.2403489, 
+SearchBayesianSkopt: Config 25 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.3212157709753139, 'beta': 0.22208066405205115} - results: MAP: 0.2432137, 
+SearchBayesianSkopt: Config 26 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.14898935562038398, 'beta': 0.39547554574209914} - results: MAP: 0.2396137, 
+SearchBayesianSkopt: Config 27 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.3976408787160184, 'beta': 0.303576515107754} - results: MAP: 0.2454089, 
+SearchBayesianSkopt: Config 28 is suboptimal. Config: {'norm': inf, 'alpha': 0.23388173238962182, 'beta': 0.01472639332851403} - results: MAP: 0.2313423, 
+SearchBayesianSkopt: Config 29 is suboptimal. Config: {'norm': -inf, 'alpha': 0.10751798733075842, 'beta': 0.4874319201911696} - results: MAP: 0.2403535, 
+SearchBayesianSkopt: Config 30 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.06872027032069347, 'beta': 0.4136089130269876} - results: MAP: 0.2348268, 
+SearchBayesianSkopt: Config 31 is suboptimal. Config: {'norm': -inf, 'alpha': 0.020541601722986986, 'beta': 0.41315598388819946} - results: MAP: 0.2325058, 
+SearchBayesianSkopt: Config 32 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.05354197479698362, 'beta': 0.3224880900218978} - results: MAP: 0.2318374, 
+SearchBayesianSkopt: Config 33 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.3636860436640279, 'beta': 0.20156595770164001} - results: MAP: 0.2441461, 
+SearchBayesianSkopt: New best config found. Config 34: {'norm': -inf, 'alpha': 0.4789453268428463, 'beta': 0.25549149656427267} - results: MAP: 0.2491088, 
+SearchBayesianSkopt: Config 35 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.025889415010951836, 'beta': 0.48204708202071656} - results: MAP: 0.2353077, 
+SearchBayesianSkopt: Config 36 is suboptimal. Config: {'norm': -inf, 'alpha': 0.4871675132724565, 'beta': 0.008629135304590667} - results: MAP: 0.2458260, 
+SearchBayesianSkopt: Config 37 is suboptimal. Config: {'norm': inf, 'alpha': 0.46876614773414305, 'beta': 0.47601611340200767} - results: MAP: 0.2474286, 
+SearchBayesianSkopt: Config 38 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.19965866491490414, 'beta': 0.19985591510495512} - results: MAP: 0.2353765, 
+SearchBayesianSkopt: Config 39 is suboptimal. Config: {'norm': -inf, 'alpha': 0.3633382228041865, 'beta': 0.3893025472885686} - results: MAP: 0.2481312, 
+SearchBayesianSkopt: Config 40 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.22299649157299403, 'beta': 0.48301851769347237} - results: MAP: 0.2436800, 
+SearchBayesianSkopt: Config 41 is suboptimal. Config: {'norm': inf, 'alpha': 0.18680323353055153, 'beta': 0.2865782952501809} - results: MAP: 0.2381691, 
+SearchBayesianSkopt: Config 42 is suboptimal. Config: {'norm': -inf, 'alpha': 0.4383615097938899, 'beta': 0.3063019405355838} - results: MAP: 0.2487966, 
+SearchBayesianSkopt: Config 43 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.11849261939427287, 'beta': 0.03352387106182396} - results: MAP: 0.2272875, 
+SearchBayesianSkopt: Config 44 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.20574274037570073, 'beta': 0.4150390239030982} - results: MAP: 0.2420708, 
+SearchBayesianSkopt: Config 45 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.4130442119021144, 'beta': 0.3639239560645804} - results: MAP: 0.2476908, 
+SearchBayesianSkopt: Config 46 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.34445169071925197, 'beta': 0.4922891277124686} - results: MAP: 0.2465692, 
+SearchBayesianSkopt: Config 47 is suboptimal. Config: {'norm': inf, 'alpha': 0.34150336631243583, 'beta': 0.47732414128630957} - results: MAP: 0.2459273, 
+SearchBayesianSkopt: Config 48 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.346804645420754, 'beta': 0.4288791747790121} - results: MAP: 0.2463547, 
+SearchBayesianSkopt: Config 49 is suboptimal. Config: {'norm': -inf, 'alpha': 0.03600497336644198, 'beta': 0.030172796809072255} - results: MAP: 0.2230993, 
+SearchBayesianSkopt: Config 50 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.1118149339843691, 'beta': 0.06001243027023438} - results: MAP: 0.2277650, 
+SearchBayesianSkopt: Config 51 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.2117994103025536, 'beta': 0.2884774735101727} - results: MAP: 0.2399824, 
+SearchBayesianSkopt: Config 52 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.3849367650896019, 'beta': 0.3205018527531646} - results: MAP: 0.2452474, 
+SearchBayesianSkopt: Config 53 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.40713126603653427, 'beta': 0.3519893242137194} - results: MAP: 0.2474109, 
+SearchBayesianSkopt: Config 54 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.4802707116752123, 'beta': 0.46341708189824954} - results: MAP: 0.2483773, 
+SearchBayesianSkopt: Config 55 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.2999079472048915, 'beta': 0.2820436816311104} - results: MAP: 0.2434357, 
+SearchBayesianSkopt: Config 56 is suboptimal. Config: {'norm': -inf, 'alpha': 0.38699293963429415, 'beta': 0.4386836871391241} - results: MAP: 0.2487255, 
+SearchBayesianSkopt: Config 57 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.42718646031405544, 'beta': 0.05154621679842205} - results: MAP: 0.2428435, 
+SearchBayesianSkopt: Config 58 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.19308310792813088, 'beta': 0.0855327467077244} - results: MAP: 0.2332246, 
+SearchBayesianSkopt: Config 59 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.4216897896438477, 'beta': 0.3030949404934053} - results: MAP: 0.2461821, 
+SearchBayesianSkopt: Config 60 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.04169481373910743, 'beta': 0.3446574958586218} - results: MAP: 0.2329867, 
+SearchBayesianSkopt: Config 61 is suboptimal. Config: {'norm': inf, 'alpha': 0.2368660944563095, 'beta': 0.24115003494405662} - results: MAP: 0.2391119, 
+SearchBayesianSkopt: Config 62 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.2139675155440284, 'beta': 0.42684156965515274} - results: MAP: 0.2425816, 
+SearchBayesianSkopt: Config 63 is suboptimal. Config: {'norm': 1.0, 'alpha': 0.22227179327039812, 'beta': 0.06611252461342207} - results: MAP: 0.2338553, 
+SearchBayesianSkopt: Config 64 is suboptimal. Config: {'norm': 2.0, 'alpha': 0.3962297723371352, 'beta': 0.0339490144417445} - results: MAP: 0.2383559, 
+SearchBayesianSkopt: Config 65 is suboptimal. Config: {'norm': inf, 'alpha': 0.23305843535016543, 'beta': 0.09577187650290704} - results: MAP: 0.2346135, 
