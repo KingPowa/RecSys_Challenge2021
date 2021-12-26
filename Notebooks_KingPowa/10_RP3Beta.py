@@ -29,13 +29,13 @@ if __name__ == "__main__":
 
     import os
 
-    output_folder_path = "../result_experiments/RP3Beta_Item_Based/"
+    output_folder_path = "../result_experiments/RP3Beta/"
 
     # If directory does not exist, create
     if not os.path.exists(output_folder_path):
         os.makedirs(output_folder_path)
         
-    n_cases = 50  # using 10 as an example
+    n_cases = 500  # using 10 as an example
     n_random_starts = int(n_cases*0.3)
     metric_to_optimize = "MAP"   
     cutoff_to_optimize = 10
@@ -109,6 +109,7 @@ if __name__ == "__main__":
                         output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
                         metric_to_optimize = metric_to_optimize,
                         cutoff_to_optimize = cutoff_to_optimize,
+			resume_from_saved = True
                         )
 
 
