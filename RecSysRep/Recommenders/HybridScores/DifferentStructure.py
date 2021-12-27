@@ -67,8 +67,9 @@ class ThreeDifferentModelRecommender(BaseRecommender):
     '''
     hyperparameters_range_dictionary = {
         "norm" : Categorical([1, 2, np.inf, -np.inf]),
-        "alpha" :Real(low = 0.0001, high = 0.5, prior = 'uniform'),
-        "beta" :Real(low = 0.0001, high = 0.5, prior = 'uniform')
+        "alpha" :Real(low = 0, high = 1, prior = 'uniform'),
+        "beta" :Real(low = 0, high = 1, prior = 'uniform'),
+        "gamma" :Real(low = 0, high = 1, prior = 'uniform')
     }
     '''
 
@@ -85,11 +86,19 @@ class ThreeDifferentModelRecommender(BaseRecommender):
         
         
         
-    def fit(self, norm, alpha = 0.333, beta = 0.333):
+    def fit(self, norm, alpha = 0.5, beta = 0.5, gamma = 0.5):
 
-        self.alpha = alpha
-        self.beta = beta
+        sump = alpha + beta + gamma
+
+        self.alpha = alpha/sump
+        self.beta = beta/sump
+        self.gamma = gamma/sump
         self.norm = norm
+
+        print(f"CURRENT CONFIGURATION:\n{self.recommender_1.RECOMMENDER_NAME} with weight alpha: {self.alpha}")
+        print(f"{self.recommender_2.RECOMMENDER_NAME} with weight beta: {self.beta}")
+        print(f"{self.recommender_3.RECOMMENDER_NAME} with weight gamma: {self.gamma}")
+        print(f"Norm type: {self.norm}")
 
 
     def _compute_item_score(self, user_id_array, items_to_compute):
@@ -112,7 +121,7 @@ class ThreeDifferentModelRecommender(BaseRecommender):
         if norm_item_weights_3 == 0:
             raise ValueError("Norm {} of item weights for recommender 3 is zero. Avoiding division by zero".format(self.norm))
         
-        item_weights = item_weights_1 / norm_item_weights_1 * self.alpha + item_weights_2 / norm_item_weights_2 * self.beta + item_weights_3 / norm_item_weights_3 * (1-self.alpha-self.beta)
+        item_weights = item_weights_1 / norm_item_weights_1 * self.alpha + item_weights_2 / norm_item_weights_2 * self.beta + item_weights_3 / norm_item_weights_3 * self.gamma
 
         return item_weights
 

@@ -99,8 +99,9 @@ if __name__ == "__main__":
 
     hyperparameters_range_dictionary = {
         "norm" : Categorical([1, 2, np.inf, -np.inf]),
-        "alpha" :Real(low = 0.0001, high = 0.5, prior = 'uniform'),
-        "beta" :Real(low = 0.0001, high = 0.5, prior = 'uniform')
+        "alpha" :Real(low = 0, high = 1, prior = 'uniform'),
+        "beta" :Real(low = 0, high = 1, prior = 'uniform'),
+        "gamma" :Real(low = 0, high = 1, prior = 'uniform')
     }
 
 
