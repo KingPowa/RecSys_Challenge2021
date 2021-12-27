@@ -49,7 +49,7 @@ if __name__ == "__main__":
     from Recommenders.GraphBased.RP3betaRecommender import RP3betaRecommender
     from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender_Hybrid
 
-    from Recommenders.KNN.ItemKNNScoresHybridMultipleRecommender import ItemKNNScoresHybridMultipleRecommenderOld
+    from Recommenders.KNN.ItemKNNScoresHybridMultipleRecommender import ItemKNNScoresHybridMultipleRecommender
 
     recommender1 = MultiThreadSLIM_SLIM_S_ElasticNetRecommender(URM_all.tocsr(), ICM_all)
     recommender2 = IALSRecommender_Hybrid(URM_all.tocsr(), ICM_all)
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     ofp = "../models_subs/ScoresHybrid(IALSH+RP3+SLIMH)"
 
-    recommender_class = ItemKNNScoresHybridMultipleRecommenderOld
+    recommender_class = ItemKNNScoresHybridMultipleRecommender
 
     CF_opt_hyp = {
         'TopPop': {},
@@ -67,9 +67,17 @@ if __name__ == "__main__":
         'SLIMER':  {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
         'P3alpha': {'topK': 4834, 'alpha': 1.764994849187595, 'normalize_similarity': True, 'implicit': True},
         'RP3beta': {"topK": 1049, "alpha": 1.1626473723475605, "beta": 0.6765017195261293, "normalize_similarity": True, "implicit": True},
-        'hybrid': {'alpha': 0.9999, 'beta': 0.1468889927870315, 'gamma': 0.31314578694563466},
+        'hybridnew': {'alpha': 0.4313969596049573, 'beta': 0.08471824287830569}, # 0.47...
+        'hybrid': {'alpha': 0.9999, 'beta': 0.1468889927870315, 'gamma': 0.31314578694563466}, # 0.48026
         'IALSHyb': {"num_factors": 28, "epochs": 10, "confidence_scaling": "linear", "alpha": 0.43657990940994623, "epsilon": 0.35472063248578317, "reg": 0.0001698292271931609, "mw": 0.06122362507952762}
     }
+
+    print(CF_opt_hyp['hybridnew'])
+
+    sump = sum([c for c in CF_opt_hyp['hybrid'].values()])
+
+    print({c : v/sump for c, v in CF_opt_hyp['hybrid'].items()})
+
 
     if not os.path.exists(ofp):
         os.makedirs(ofp)
@@ -84,8 +92,8 @@ if __name__ == "__main__":
         recommender2.load_model(ofp, 'IALS_Hall')
         recommender3.load_model(ofp, 'RP3Ball')
 
-    recommender_final = ItemKNNScoresHybridMultipleRecommenderOld(URM_all, recommender1, recommender2, recommender3)
-    recommender_final.fit(**CF_opt_hyp['hybrid'])
+    recommender_final = ItemKNNScoresHybridMultipleRecommender(URM_all, recommender1, recommender2, recommender3)
+    recommender_final.fit(**CF_opt_hyp['hybridnew'])
 
     import pandas as pd
     K=10
