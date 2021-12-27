@@ -1,0 +1,3 @@
+{"topK": 587, "add_zeros_quota": 0.13597527546201868, "normalize_similarity": true}
+{"MAP": 0.1102781500833615}
+obtained on ICM_stacked = hstack([ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_length_all_5km])
