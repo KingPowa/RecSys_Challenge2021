@@ -17,6 +17,8 @@ from scipy.sparse import *
 import os
 from skopt.space import Real, Integer, Categorical
 from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
+from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIM_S_ElasticNetRecommender
+import pandas as pd
 
 if __name__ == '__main__':
 
@@ -49,12 +51,15 @@ if __name__ == '__main__':
 
     argsort_features = np.argsort(-FW_recommender.D_best)
 
-    selection_quota = 0.7
+    selection_quota = 1
         
     n_to_select = int(selection_quota*len(argsort_features))
     selected_features = argsort_features[:n_to_select]
         
-    ICM_selected = csr_matrix(ICM_stacked.todense()[:,selected_features])
+    ICM_selected = ICM_stacked.todense()[:,selected_features]
+    ICM_selected = csr_matrix(ICM_selected)
+
+    
         
     output_folder_path = "../result_experiments/12_FW_S_SLIM/"
 
@@ -79,7 +84,6 @@ if __name__ == '__main__':
 
     # In[11]:
 
-    from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIM_S_ElasticNetRecommender
     from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
 
     recommender_class = MultiThreadSLIM_SLIM_S_ElasticNetRecommender
@@ -109,4 +113,47 @@ if __name__ == '__main__':
                                 cutoff_to_optimize=cutoff_to_optimize,
                                 resume_from_saved=False,
                                 )
+    
+    '''
 
+    best = {'l1_ratio': 0.0005247075138160404, 'topK': 4983, 'alpha': 0.06067400905430761, 'workers': 8, 'mw': 2.308619939318322}
+
+    recommender = MultiThreadSLIM_SLIM_S_ElasticNetRecommender(URM_all, ICM_selected)
+    recommender.fit(**best)
+
+    import pandas as pd
+    at = 10
+
+    user_test_path = '../data/data_target_users_test.csv'
+    user_test_dataframe = pd.read_csv(filepath_or_buffer=user_test_path,
+    sep=",",
+    dtype={0:int})
+
+    subm_set = user_test_dataframe.to_numpy().T[0]
+
+
+    subm_res = {"user_id":[], "item_list":[]}
+
+    for user_id in subm_set:
+        subm_res["user_id"].append(user_id)
+        res = recommender.recommend(user_id, cutoff=at)
+        res = ' '.join(map(str, res))
+        if user_id < 3:
+            print(user_id)
+            print(res)
+        subm_res["item_list"].append(res)
+
+
+        # print(subm_res)
+
+    submission = pd.DataFrame.from_dict(subm_res)
+        # submission
+
+    from datetime import datetime
+
+    now = datetime.now() # current date and time
+
+
+    submission.to_csv('../subs/submission {:%Y_%m_%d %H_%M_%S}.csv'.format(now), index=False)
+
+    '''
