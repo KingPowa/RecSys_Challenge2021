@@ -37,3 +37,7 @@ channel:
 selected_7:
 {"shrink": 4000, "topK": 985, "feature_weighting": "TF-IDF", "normalize": true}
 0.07652628710112308
+
+selected_8:
+{'shrink': 3568, 'topK': 986, 'feature_weighting': 'TF-IDF', 'normalize': True}
+0.07632190878745779
