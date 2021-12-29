@@ -81,7 +81,7 @@ earlystopping_keywargs = {"validation_every_n": 18,
 # In[29]:
 
 
-from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython_Hybrid
+from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython_HybridW
 
 class Objd(object):
         def __init__(self, URM_train, ICM_all, evaluator):
@@ -97,7 +97,8 @@ class Objd(object):
                         "lambda_j": trial.suggest_loguniform('lambda_j', 1e-5, 1e-2), 
                         "learning_rate": trial.suggest_uniform('learning_rate', 4e-4, 1e-1), 
                         "topK": trial.suggest_int('topK', 2000, 8000), 
-                        "random_seed": 1234, 
+                        "random_seed": 1234,
+                        "mw": tiral.suggest_uniform("mw", 0, 1), 
                         "sgd_mode": "sgd"}
 
             earlystopping_keywargs = {"validation_every_n": 18,
@@ -107,11 +108,11 @@ class Objd(object):
                         "validation_metric": "MAP"
                         }
 
-            recommender = SLIM_BPR_Cython_Hybrid(self.URM_train, self.ICM_all)
+            recommender = SLIM_BPR_Cython_HybridW(self.URM_train, self.ICM_all)
             recommender.fit(**search_args, **earlystopping_keywargs)
             result_dict, _ = self.evaluator.evaluateRecommender(recommender)
 
-            map_v = result_dict.loc[cutoff]["MAP"]
+            map_v = result_dict.loc[10]["MAP"]
             return -map_v
 
     import optuna

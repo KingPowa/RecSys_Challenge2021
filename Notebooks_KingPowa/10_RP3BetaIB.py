@@ -78,7 +78,7 @@ if __name__ == "__main__":
             recommender.fit(**search_args)
             result_dict, _ = self.evaluator.evaluateRecommender(recommender)
 
-            map_v = result_dict.loc[cutoff]["MAP"]
+            map_v = result_dict.loc[10]["MAP"]
             return -map_v
 
     import optuna
