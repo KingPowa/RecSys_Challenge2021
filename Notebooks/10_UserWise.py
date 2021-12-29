@@ -55,8 +55,9 @@ if __name__ == '__main__':
     content_recommender_class = {"ItemKNNCBF": ItemKNNCBFRecommender   
                                 }
 
-    hybrid_recommender_class = {"IALSHyb": IALSRecommender_Hybrid,
-                                "SLIMgensub" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
+    hybrid_recommender_class = {#"IALSHyb": IALSRecommender_Hybrid,
+                                #"SLIMgensub" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
+                                #"SLIMweig" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
                                 "SLIM_BPR_Hyb" : SLIM_BPR_Cython_Hybrid,
                                 "MF_Hyb" : MatrixFactorization_BPR_Cython_Hybrid,
                                 "RP3ICM" : RP3betaRecommenderICM
@@ -66,7 +67,9 @@ if __name__ == '__main__':
                                    "SLIMgensub": 'icm_genre_subgenre',
                                    "SLIM_BPR_Hyb" : 'icm_all',
                                    "MF_Hyb" : 'icm_all',
-                                   'RP3ICM' : 'icm_all'
+                                   'RP3ICM' : 'icm_all',
+                                   #'RP3ICM_new' : 'icm_weighted',
+                                   #"SLIMweig" : 'icm_weighted'
     }
     
     KNN_optimal_hyperparameters = {
@@ -74,9 +77,10 @@ if __name__ == '__main__':
         'subgenre': {"shrink": 663, "topK": 10, "feature_weighting": "BM25", "normalize": False},
         'channel': {"shrink": 2000, "topK": 382, "feature_weighting": "TF-IDF", "normalize": False},
         # '3bal': {"shrink": 948, "topK": 2750, "feature_weighting": "TF-IDF", "normalize": True},
-        '3km': {"shrink": 2000, "topK": 10, "feature_weighting": "BM25", "normalize": False},
+        # '3km': {"shrink": 2000, "topK": 10, "feature_weighting": "BM25", "normalize": False},
         # '5bal':{"shrink": 1188, "topK": 1156, "feature_weighting": "none", "normalize": True},
-        '5km': {"shrink": 1663, "topK": 10, "feature_weighting": "BM25", "normalize": True}
+        '5km': {"shrink": 1663, "topK": 10, "feature_weighting": "BM25", "normalize": True},
+        #'icm_weighted': 
     }
 
     KNN_ICMs = {
@@ -84,9 +88,10 @@ if __name__ == '__main__':
         'subgenre': ICM_subgenre_all,
         'channel': ICM_channel_all,
         # '3bal': ICM_length_all_3bal,
-        '3km': ICM_length_all_3km,
+        # '3km': ICM_length_all_3km,
         # '5bal': ICM_length_all_5bal,
         '5km': ICM_length_all_5km,
+        'icm_weighted': ICM_selected
     }
 
     hybrid_ICMS = {
@@ -102,6 +107,7 @@ if __name__ == '__main__':
         'SLIM_BPR_Hyb' : {"epochs": 1443, "lambda_i": 8.900837513818856e-05, "lambda_j": 1.2615223007492727e-05, "learning_rate": 0.0037706733838839264, "topK": 6181, "random_seed": 1234, "sgd_mode": "sgd"},
         'IALS' : {"num_factors": 29, "epochs": 50, "confidence_scaling": "log", "alpha": 0.001, "epsilon": 0.001, "reg": 0.01},
         'SLIMgensub': {"l1_ratio" : 0.025887359156206147, "topK": 2140, "alpha": 0.009567288586539689, "workers": 8, "mw": 1},
+        'SLIMweig': {'l1_ratio': 0.0005247075138160404, 'topK': 4983, 'alpha': 0.06067400905430761, 'workers': 8, 'mw': 2.308619939318322},
         'SLIMER':  {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
         'P3alpha': {'topK': 4834, 'alpha': 1.764994849187595, 'normalize_similarity': True, 'implicit': True},
         'RP3beta': {"topK": 1049, "alpha": 1.1626473723475605, "beta": 0.6765017195261293, "normalize_similarity": True, "implicit": True},

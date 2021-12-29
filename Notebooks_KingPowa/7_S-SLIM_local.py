@@ -51,35 +51,8 @@ URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all,
 
 
 evaluator_validation = EvaluatorHoldout(URM_validation, cutoff_list=[10])
-#evaluator_test = EvaluatorHoldout(URM_test, cutoff_list=[10])
-
-
+#evaluator_test = EvaluatorHoldout(URM_test, cutoff_list=[10]
 # In[28]:
-
-
-from skopt.space import Real, Integer, Categorical
-
-hyperparameters_range_dictionary = {
-    "epochs": Categorical([3000]),
-    "lambda_i": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
-    "lambda_j": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
-    "learning_rate": Real(low = 4e-4, high = 1e-1, prior = 'log-uniform'),
-    "w"
-    "topK": Integer(800, 8000),
-    "random_seed":Categorical([1224]),
-    "sgd_mode": Categorical(["sgd", "adagrad", "adam"])
-}
-
-earlystopping_keywargs = {"validation_every_n": 18,
-                          "stop_on_validation": True,
-                          "evaluator_object": evaluator_validation,
-                          "lower_validations_allowed": 15,
-                          "validation_metric": "MAP",
-                          }
-
-
-# In[29]:
-
 
 from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython_HybridW
 
