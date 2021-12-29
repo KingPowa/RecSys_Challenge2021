@@ -87,6 +87,7 @@ class Objd(object):
         def __init__(self, URM_train, ICM_all, evaluator):
             # Hold this implementation specific arguments as the fields of the class.
             self.URM_train = URM_train
+            self.ICM_all = ICM_all
             self.evaluator = evaluator
 
         def __call__(self, trial):
