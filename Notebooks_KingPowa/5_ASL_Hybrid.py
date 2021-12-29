@@ -19,9 +19,8 @@ if __name__ == "__main__":
     np.random.seed(1234)
 
     URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
-    ICM_length_all = ld.getICMlength("5km")
+    ICM_all = ld.getICMselected("7")
 
-    ICM_all = sps.hstack([ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_length_all])
     # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8)
 
 
