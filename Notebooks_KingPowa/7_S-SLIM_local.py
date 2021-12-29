@@ -115,7 +115,7 @@ class Objd(object):
             map_v = result_dict.loc[10]["MAP"]
             return -map_v
 
-    import optuna
+import optuna
 
-    study = optuna.create_study(direction='minimize')
-    study.optimize(Objd(URM_train, ICM_all, evaluator_validation), n_trials=500)
+study = optuna.create_study(direction='minimize')
+study.optimize(Objd(URM_train, ICM_all, evaluator_validation), n_trials=500)
