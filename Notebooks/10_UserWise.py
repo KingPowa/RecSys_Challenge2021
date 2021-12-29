@@ -48,7 +48,7 @@ if __name__ == '__main__':
                                     "SLIMER" : MultiThreadSLIM_SLIMElasticNetRecommender,
                                     "TopPop": TopPop,
                                     # "GlobalEffects": GlobalEffects,
-                                    # "SLIMBPR": SLIM_BPR_Cython,
+                                    "SLIMBPR": SLIM_BPR_Cython,
                                     "IALS": IALSRecommender
                                     }
 
@@ -58,16 +58,18 @@ if __name__ == '__main__':
     hybrid_recommender_class = {#"IALSHyb": IALSRecommender_Hybrid,
                                 #"SLIMgensub" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
                                 #"SLIMweig" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
-                                "SLIM_BPR_Hyb" : SLIM_BPR_Cython_Hybrid,
-                                "MF_Hyb" : MatrixFactorization_BPR_Cython_Hybrid,
-                                "RP3ICM" : RP3betaRecommenderICM
+                                #"SLIM_BPR_Hyb" : SLIM_BPR_Cython_Hybrid,
+                                #"MF_Hyb" : MatrixFactorization_BPR_Cython_Hybrid,
+                                "RP3ICM" : RP3betaRecommenderICM,
+                                "RP3ICMnew" : RP3betaRecommenderICM
     }
 
-    hybrid_recommender_matrices = {"IALSHyb": 'icm_all',
-                                   "SLIMgensub": 'icm_genre_subgenre',
-                                   "SLIM_BPR_Hyb" : 'icm_all',
-                                   "MF_Hyb" : 'icm_all',
+    hybrid_recommender_matrices = {#"IALSHyb": 'icm_all',
+                                   #"SLIMgensub": 'icm_genre_subgenre',
+                                   #"SLIM_BPR_Hyb" : 'icm_all',
+                                   #"MF_Hyb" : 'icm_all',
                                    'RP3ICM' : 'icm_all',
+                                   'RP3ICMnew' : 'icm_weighted'
                                    #'RP3ICM_new' : 'icm_weighted',
                                    #"SLIMweig" : 'icm_weighted'
     }
@@ -80,7 +82,7 @@ if __name__ == '__main__':
         # '3km': {"shrink": 2000, "topK": 10, "feature_weighting": "BM25", "normalize": False},
         # '5bal':{"shrink": 1188, "topK": 1156, "feature_weighting": "none", "normalize": True},
         '5km': {"shrink": 1663, "topK": 10, "feature_weighting": "BM25", "normalize": True},
-        #'icm_weighted': 
+        'icm_weighted': {"shrink": 4000, "topK": 985, "feature_weighting": "TF-IDF", "normalize": True}
     }
 
     KNN_ICMs = {
@@ -91,24 +93,26 @@ if __name__ == '__main__':
         # '3km': ICM_length_all_3km,
         # '5bal': ICM_length_all_5bal,
         '5km': ICM_length_all_5km,
-        'icm_weighted': ICM_selected
+        'icm_weighted' : ICM_selected
     }
 
     hybrid_ICMS = {
         'icm_all': hstack([ICM_genre_all, ICM_channel_all, ICM_length_all_5km]),
-        'icm_genre_subgenre': hstack([ICM_genre_all, ICM_subgenre_all]),
+        #'icm_genre_subgenre': hstack([ICM_genre_all, ICM_subgenre_all]),
         'icm_weighted' : ICM_selected
     }
 
     CF_optimal_hyperparameters = {
         'TopPop': {},
+        'RP3ICMnew': {'alpha': 1.029719677583138, 'beta': 1.0630164752134375, 'topK': 6964, 'normalize_similarity': True},
         'RP3ICM' : {"topK": 2550, "alpha": 1.3058102610510849, "beta": 0.5150718337969987, "normalize_similarity": True, "implicit": True},
         'MF_Hyb': {"sgd_mode": "adam", "epochs": 390, "num_factors": 1, "batch_size": 1, "positive_reg": 0.0014765160794342439, "negative_reg": 1e-05, "learning_rate": 0.0007053433729996733},
         'SLIM_BPR_Hyb' : {"epochs": 1443, "lambda_i": 8.900837513818856e-05, "lambda_j": 1.2615223007492727e-05, "learning_rate": 0.0037706733838839264, "topK": 6181, "random_seed": 1234, "sgd_mode": "sgd"},
         'IALS' : {"num_factors": 29, "epochs": 50, "confidence_scaling": "log", "alpha": 0.001, "epsilon": 0.001, "reg": 0.01},
         'SLIMgensub': {"l1_ratio" : 0.025887359156206147, "topK": 2140, "alpha": 0.009567288586539689, "workers": 8, "mw": 1},
+        'SLIMBPR' : {"epochs": 440, "lambda_i": 0.007773815998802306, "lambda_j": 0.003342522366982381, "learning_rate": 0.010055161410725193, "topK": 4289, "random_seed": 1234, "sgd_mode": "sgd"},
         'SLIMweig': {'l1_ratio': 0.0005247075138160404, 'topK': 4983, 'alpha': 0.06067400905430761, 'workers': 8, 'mw': 2.308619939318322},
-        'SLIMER':  {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
+        'SLIMER': {'topK': 6000, 'l1_ratio': 0.0005495104968035837, 'alpha': 0.08007142704041009, 'workers': 8},
         'P3alpha': {'topK': 4834, 'alpha': 1.764994849187595, 'normalize_similarity': True, 'implicit': True},
         'RP3beta': {"topK": 1049, "alpha": 1.1626473723475605, "beta": 0.6765017195261293, "normalize_similarity": True, "implicit": True},
         'IALSHyb': {"num_factors": 28, "epochs": 10, "confidence_scaling": "linear", "alpha": 0.43657990940994623, "epsilon": 0.35472063248578317, "reg": 0.0001698292271931609, "mw": 0.06122362507952762}
@@ -116,7 +120,7 @@ if __name__ == '__main__':
 
     recommender_object_dict = {}
 
-    n_groups = 10
+    n_groups = 5
     block_size = int(len(profile_length)*(n_groups/100))
     cutoff = 10
 
