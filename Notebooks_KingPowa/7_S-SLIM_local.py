@@ -17,8 +17,7 @@ sys.path.append('../RecSysRep/')
 
 import Basics.Load as ld
 
-URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
-ICM_length_all = ld.getICMlength("5km")
+URM_all, _, _, _, _ = ld.getCOOs()
 # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8)
 
 
@@ -27,15 +26,15 @@ ICM_length_all = ld.getICMlength("5km")
 
 import os
 
-ICM_all = sps.hstack([ICM_genre_all, ICM_channel_all, ICM_length_all])
+ICM_all = ld.getICMselected('7')
 
-output_folder_path = "result_experiments/S-SLIM_BPR_withall/"
+output_folder_path = "result_experiments/S-SLIM_BPR_weighted/"
 
 # If directory does not exist, create
 if not os.path.exists(output_folder_path):
     os.makedirs(output_folder_path)
     
-n_cases = 50  # using 10 as an example
+n_cases = 100  # using 10 as an example
 n_random_starts = int(n_cases*0.3)
 metric_to_optimize = "MAP"   
 cutoff_to_optimize = 10
@@ -50,7 +49,7 @@ from Evaluation.Evaluator import EvaluatorHoldout
 from Data_manager.split_functions.split_train_validation_random_holdout import split_train_in_two_percentage_global_sample
 
 #URM_train_validation, URM_test = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8)
-URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed=1234)
+URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed=1224)
 
 
 # In[20]:
@@ -70,15 +69,15 @@ hyperparameters_range_dictionary = {
     "lambda_i": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
     "lambda_j": Real(low = 1e-5, high = 1e-2, prior = 'log-uniform'),
     "learning_rate": Real(low = 4e-4, high = 1e-1, prior = 'log-uniform'),
-    "topK": Integer(200, 8000),
-    "random_seed":Categorical([1234]),
+    "topK": Integer(800, 8000),
+    "random_seed":Categorical([1224]),
     "sgd_mode": Categorical(["sgd", "adagrad", "adam"])
 }
 
-earlystopping_keywargs = {"validation_every_n": 13,
+earlystopping_keywargs = {"validation_every_n": 18,
                           "stop_on_validation": True,
                           "evaluator_object": evaluator_validation,
-                          "lower_validations_allowed": 10,
+                          "lower_validations_allowed": 15,
                           "validation_metric": metric_to_optimize,
                           }
 
