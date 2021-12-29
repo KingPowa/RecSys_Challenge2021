@@ -98,7 +98,7 @@ class Objd(object):
                         "learning_rate": trial.suggest_uniform('learning_rate', 4e-4, 1e-1), 
                         "topK": trial.suggest_int('topK', 2000, 8000), 
                         "random_seed": 1234,
-                        "mw": tiral.suggest_uniform("mw", 0, 1), 
+                        "mw": trial.suggest_uniform("mw", 0, 1), 
                         "sgd_mode": "sgd"}
 
             earlystopping_keywargs = {"validation_every_n": 18,
