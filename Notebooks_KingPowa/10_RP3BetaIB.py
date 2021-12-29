@@ -29,16 +29,11 @@ if __name__ == "__main__":
 
     import os
 
-    output_folder_path = "../result_experiments/RP3Beta_Item_Based/"
+    output_folder_path = "../result_experiments/RP3Beta_Item_BasedOpt/"
 
     # If directory does not exist, create
     if not os.path.exists(output_folder_path):
         os.makedirs(output_folder_path)
-        
-    n_cases = 50  # using 10 as an example
-    n_random_starts = int(n_cases*0.3)
-    metric_to_optimize = "MAP"   
-    cutoff_to_optimize = 10
 
 
     # # SLIM Model
@@ -62,76 +57,31 @@ if __name__ == "__main__":
     #evaluator_test = EvaluatorHoldout(URM_test, cutoff_list=[10])
 
 
-    # In[28]:
+    class TrainUserBased(object):
+        def __init__(self, URM_train, ICM_all, evaluator):
+            # Hold this implementation specific arguments as the fields of the class.
+            self.URM_train = URM_train
+            self.evaluator = evaluator
 
+        def __call__(self, trial):
+            # Calculate an objective value by using the extra arguments.
+            
+            search_args = { "alpha": trial.suggest_uniform('alpha', 0, 2),
+                            "alpha": trial.suggest_uniform('beta', 0, 2),  
+                            "topK": trial.suggest_int('topK', 1000, 8000), 
+                            "normalize_similarity": trial.suggest_categorical("normalize_similarity", [True, False]),
+                            "implicit": True}
+            
+            #omega = trial.suggest_uniform('omega', 0.1, 0.9)
 
-    from skopt.space import Real, Integer, Categorical
+            recommender = RP3betaRecommenderICM(URM_train, ICM_all)
+            recommender.fit(**search_args)
+            result_dict, _ = self.evaluator.evaluateRecommender(recommender)
 
-    hyperparameters_range_dictionary = {
-                "topK": Integer(200, 9000),
-                "alpha": Real(low = 0, high = 2, prior = 'uniform'),
-                "beta": Real(low = 0, high = 2, prior = 'uniform'),
-                "normalize_similarity": Categorical([True, False]),
-                "implicit": Categorical([True])
-            }
+            map_v = result_dict.loc[cutoff]["MAP"]
+            return -map_v
 
+    import optuna
 
-    # In[29]:
-    from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
-
-    recommender_class = RP3betaRecommenderICM
-
-    hyperparameterSearch = SearchBayesianSkopt(recommender_class,
-                                            evaluator_validation=evaluator_validation)
-
-
-    # In[30]:
-
-
-    from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
-    
-    recommender_input_args = SearchInputRecommenderArgs(
-        CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_all],     # For a CBF model simply put [URM_train, ICM_train]
-        CONSTRUCTOR_KEYWORD_ARGS = {},
-        FIT_POSITIONAL_ARGS = [],
-        FIT_KEYWORD_ARGS = {}   # Additiona hyperparameters for the fit function
-    )
-
-
-    # In[ ]:
-
-
-    hyperparameterSearch.search(recommender_input_args,
-                        hyperparameter_search_space = hyperparameters_range_dictionary,
-                        n_cases = n_cases,
-                        n_random_starts = n_random_starts,
-                        output_folder_path = output_folder_path, # Where to save the results
-                        output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
-                        metric_to_optimize = metric_to_optimize,
-                        cutoff_to_optimize = cutoff_to_optimize,
-                        )
-
-
-    # In[ ]:
-
-
-    from Recommenders.DataIO import DataIO
-
-    data_loader = DataIO(folder_path = output_folder_path)
-    search_metadata = data_loader.load_data(recommender_class.RECOMMENDER_NAME + "_metadata.zip")
-
-    search_metadata.keys()
-
-
-    # In[ ]:
-
-
-    hyp = search_metadata["hyperparameters_best"]
-    hyp
-
-
-    # In[ ]:
-
-
-    result_on_validation_df = search_metadata["result_on_test_df"]
-    result_on_validation_df
+    study = optuna.create_study(direction='minimize')
+    study.optimize(TrainUserBased(URM_train, ICM_all, evaluator_validation), n_trials=500)
