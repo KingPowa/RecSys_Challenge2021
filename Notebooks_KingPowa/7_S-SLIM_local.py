@@ -74,7 +74,7 @@ earlystopping_keywargs = {"validation_every_n": 18,
                           "stop_on_validation": True,
                           "evaluator_object": evaluator_validation,
                           "lower_validations_allowed": 15,
-                          "validation_metric": metric_to_optimize,
+                          "validation_metric": "MAP",
                           }
 
 
