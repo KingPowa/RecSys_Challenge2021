@@ -225,6 +225,23 @@ class IALSRecommender_Hybrid(IALSRecommender):
         mat = sps.vstack((URM_train, self.ICM))
         #print(mat.shape)
         super(IALSRecommender_Hybrid, self).__init__(mat, verbose = verbose)
+
+    # def fit(self, epochs = 300,
+    #         num_factors = 20,
+    #         confidence_scaling = "linear",
+    #         alpha = 1.0,
+    #         epsilon = 1.0,
+    #         reg = 1e-3,
+    #         init_mean=0.0,
+    #         init_std=0.1,
+    #         **earlystopping_kwargs):
+
+        
+    #     self.URM_train = sps.vstack((self.URM_temp, self.ICM)).tocsr()
+    #     #print(self.URM_train.shape)
+    #     print(epochs)
+    #     super(IALSRecommender_Hybrid, self).fit(epochs=epochs, num_factors=num_factors, confidence_scaling=confidence_scaling, alpha=alpha, epsilon=epsilon, reg=reg, 
+    #     init_mean=init_mean, init_std=init_std,**earlystopping_kwargs)
         
 
     def fit(self, epochs = 300,
@@ -244,3 +261,22 @@ class IALSRecommender_Hybrid(IALSRecommender):
         print(epochs)
         super(IALSRecommender_Hybrid, self).fit(epochs=epochs, num_factors=num_factors, confidence_scaling=confidence_scaling, alpha=alpha, epsilon=epsilon, reg=reg, 
         init_mean=init_mean, init_std=init_std,**earlystopping_kwargs)
+
+
+    # def fit(self, epochs = 300,
+    #         num_factors = 20,
+    #         confidence_scaling = "linear",
+    #         alpha = 1.0,
+    #         epsilon = 1.0,
+    #         reg = 1e-3,
+    #         init_mean=0.0,
+    #         init_std=0.1,
+    #         mw_ICM = 0.5,
+    #         **earlystopping_kwargs):
+
+        
+    #     self.URM_train = sps.vstack((self.URM_temp, self.ICM*mw_ICM)).tocsr()
+    #     #print(self.URM_train.shape)
+    #     print(epochs)
+    #     super(IALSRecommender_Hybrid, self).fit(epochs=epochs, num_factors=num_factors, confidence_scaling=confidence_scaling, alpha=alpha, epsilon=epsilon, reg=reg, 
+    #     init_mean=init_mean, init_std=init_std,**earlystopping_kwargs)

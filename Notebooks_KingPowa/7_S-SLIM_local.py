@@ -50,7 +50,7 @@ from Evaluation.Evaluator import EvaluatorHoldout
 from Data_manager.split_functions.split_train_validation_random_holdout import split_train_in_two_percentage_global_sample
 
 #URM_train_validation, URM_test = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8)
-URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8)
+URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed=1234)
 
 
 # In[20]:

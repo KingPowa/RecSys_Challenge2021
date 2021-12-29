@@ -189,6 +189,22 @@ class MatrixFactorization_BPR_Cython_Hybrid(MatrixFactorization_BPR_Cython):
 
         self.URM_train = self.URM_train_original
 
+    # def fit(self, mw = 0.5, **key_args):
+
+    #     self.URM_train = sps.vstack((self.URM_train_original*mw, self.ICM*(1-mw)))
+
+    #     super(MatrixFactorization_BPR_Cython_Hybrid, self).fit(**key_args)
+
+    #     self.URM_train = self.URM_train_original
+
+    # def fit(self, mw_ICM = 1, **key_args):
+
+    #     self.URM_train = sps.vstack((self.URM_train_original, self.ICM*mw_ICM))
+
+    #     super(MatrixFactorization_BPR_Cython_Hybrid, self).fit(**key_args)
+
+    #     self.URM_train = self.URM_train_original
+
 
 
 

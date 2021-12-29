@@ -105,3 +105,9 @@ def getICMlength(param = "3bal"):
     ICM_length_all_dataframe = pd.read_csv(filepath_or_buffer=ICM_length_path)
     ICM_length_all = sps.coo_matrix(ICM_length_all_dataframe)
     return ICM_length_all
+    
+def getICMselected(param = "7"):
+    ICM_selected_path = '../data/ICM_selected_' + param + ".csv"
+    ICM_selected_dataframe = pd.read_csv(filepath_or_buffer=ICM_selected_path)
+    ICM_selected = sps.coo_matrix(ICM_selected_dataframe)
+    return ICM_selected
