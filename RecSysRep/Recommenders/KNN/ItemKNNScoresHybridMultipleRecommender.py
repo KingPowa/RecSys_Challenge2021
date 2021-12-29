@@ -49,3 +49,41 @@ class ItemKNNScoresHybridMultipleRecommender(BaseItemSimilarityMatrixRecommender
         item_weights = item_weights_1*self.alpha + item_weights_2*self.beta + item_weights_3*self.gamma
 
         return item_weights
+
+class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
+    """ ItemKNNScoresHybridRecommender
+    Hybrid of two prediction scores R = R1*alpha + R2*beta + R3*(1-alpha-beta)
+
+    """
+
+    RECOMMENDER_NAME = "ItemKNNScoresHybridTwoRecommender"
+
+
+    def __init__(self, URM_train, Recommender_1, Recommender_2, verbose = True):
+        super(ItemKNNScoresHybridTwoRecommender, self).__init__(URM_train, verbose = verbose)
+
+        self.URM_train = check_matrix(URM_train.copy(), 'csr')
+        self.Recommender_1 = Recommender_1
+        self.Recommender_2 = Recommender_2
+        
+        
+    def fit(self, alpha = 0.5):
+
+        self.alpha = alpha
+
+        '''
+        print(f"CURRENT CONFIGURATION:\n{self.Recommender_1.RECOMMENDER_NAME} with weight alpha: {self.alpha}")
+        print(f"{self.Recommender_2.RECOMMENDER_NAME} with weight beta: {1 - self.alpha}")
+        '''
+
+    def _compute_item_score(self, user_id_array, items_to_compute):
+        
+        item_weights_1 = self.Recommender_1._compute_item_score(user_id_array)
+        item_weights_2 = self.Recommender_2._compute_item_score(user_id_array)
+
+        print(item_weights_1)
+        print(item_weights_2)
+
+        item_weights = item_weights_1*self.alpha + item_weights_2*(1 - self.alpha)
+
+        return item_weights
