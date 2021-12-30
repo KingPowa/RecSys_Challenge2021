@@ -15,9 +15,9 @@ import Basics.Load as ld
 
 URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
 # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8
-ICM_7 = ld.getICMselected(7)
-ICM_8 = ld.getICMselected(8)
-ICM_9 = ld.getICMselected(9)
+ICM_5 = ld.getICMselected(5)
+ICM_6 = ld.getICMselected(6)
+ICM_3 = ld.getICMselected(3)
 
 # In[3]:
 
@@ -37,7 +37,7 @@ evaluator_validation = EvaluatorHoldout(URM_validation, cutoff_list=[10])
 
 import os
     
-n_cases = 200
+n_cases = 80
 n_random_starts = int(n_cases*0.4)
 metric_to_optimize = "MAP"   
 cutoff_to_optimize = 10
@@ -47,8 +47,8 @@ cutoff_to_optimize = 10
 from skopt.space import Real, Integer, Categorical
 
 hyperparameters_range_dictionary = {
-    "shrink": Integer(500, 8000),
-    "topK": Integer(10, 8000),
+    "shrink": Integer(2000, 10000),
+    "topK": Integer(10, 3000),
     "feature_weighting": Categorical(["BM25", "TF-IDF", "none"]),
     "normalize": Categorical([True, False]),
 }
@@ -68,16 +68,16 @@ hyperparameterSearch = SearchBayesianSkopt(recommender_class,
 
 from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
   
-
 '''
+
 recommender_input_args = SearchInputRecommenderArgs(
-    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_7],     # For a CBF model simply put [URM_train, ICM_train]
+    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_5],     # For a CBF model simply put [URM_train, ICM_train]
     CONSTRUCTOR_KEYWORD_ARGS = {},
     FIT_POSITIONAL_ARGS = [],
     FIT_KEYWORD_ARGS = {}     # Additiona hyperparameters for the fit function
 )
 
-output_folder_path = "../result_experiments/9_ItemKNN_selected_7/"
+output_folder_path = "../result_experiments/9_ItemKNN_selected_5/"
 
 # If directory does not exist, create
 if not os.path.exists(output_folder_path):
@@ -96,13 +96,13 @@ hyperparameterSearch.search(recommender_input_args,
 
 
 recommender_input_args = SearchInputRecommenderArgs(
-    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_8],     # For a CBF model simply put [URM_train, ICM_train]
+    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_6],     # For a CBF model simply put [URM_train, ICM_train]
     CONSTRUCTOR_KEYWORD_ARGS = {},
     FIT_POSITIONAL_ARGS = [],
     FIT_KEYWORD_ARGS = {}     # Additiona hyperparameters for the fit function
 )
 
-output_folder_path = "../result_experiments/9_ItemKNN_selected_8/"
+output_folder_path = "../result_experiments/9_ItemKNN_selected_6/"
 
 # If directory does not exist, create
 if not os.path.exists(output_folder_path):
@@ -122,13 +122,13 @@ hyperparameterSearch.search(recommender_input_args,
 '''
 
 recommender_input_args = SearchInputRecommenderArgs(
-    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_9],     # For a CBF model simply put [URM_train, ICM_train]
+    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_3],     # For a CBF model simply put [URM_train, ICM_train]
     CONSTRUCTOR_KEYWORD_ARGS = {},
     FIT_POSITIONAL_ARGS = [],
     FIT_KEYWORD_ARGS = {}     # Additiona hyperparameters for the fit function
 )
 
-output_folder_path = "../result_experiments/9_ItemKNN_selected_9/"
+output_folder_path = "../result_experiments/9_ItemKNN_selected_1/"
 
 # If directory does not exist, create
 if not os.path.exists(output_folder_path):
