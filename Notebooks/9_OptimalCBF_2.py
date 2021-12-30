@@ -38,7 +38,7 @@ evaluator_validation = EvaluatorHoldout(URM_validation, cutoff_list=[10])
 import os
     
 n_cases = 200
-n_random_starts = int(n_cases*0.3)
+n_random_starts = int(n_cases*0.4)
 metric_to_optimize = "MAP"   
 cutoff_to_optimize = 10
 
@@ -47,7 +47,7 @@ cutoff_to_optimize = 10
 from skopt.space import Real, Integer, Categorical
 
 hyperparameters_range_dictionary = {
-    "shrink": Integer(0, 4000),
+    "shrink": Integer(500, 8000),
     "topK": Integer(10, 8000),
     "feature_weighting": Categorical(["BM25", "TF-IDF", "none"]),
     "normalize": Categorical([True, False]),
@@ -69,6 +69,7 @@ hyperparameterSearch = SearchBayesianSkopt(recommender_class,
 from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
   
 
+'''
 recommender_input_args = SearchInputRecommenderArgs(
     CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_7],     # For a CBF model simply put [URM_train, ICM_train]
     CONSTRUCTOR_KEYWORD_ARGS = {},
@@ -118,6 +119,7 @@ hyperparameterSearch.search(recommender_input_args,
                        cutoff_to_optimize = cutoff_to_optimize,
                       )
 
+'''
 
 recommender_input_args = SearchInputRecommenderArgs(
     CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_9],     # For a CBF model simply put [URM_train, ICM_train]
