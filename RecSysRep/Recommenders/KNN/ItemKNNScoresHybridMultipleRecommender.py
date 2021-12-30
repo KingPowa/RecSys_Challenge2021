@@ -8,6 +8,7 @@ Created on 15/11/20
 
 from Recommenders.Recommender_utils import check_matrix, similarityMatrixTopK
 from Recommenders.BaseSimilarityMatrixRecommender import BaseItemSimilarityMatrixRecommender
+from numpy import linalg as LA
 
 class ItemKNNScoresHybridMultipleRecommender(BaseItemSimilarityMatrixRecommender):
     """ ItemKNNScoresHybridRecommender
@@ -52,7 +53,6 @@ class ItemKNNScoresHybridMultipleRecommender(BaseItemSimilarityMatrixRecommender
 
 class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
     """ ItemKNNScoresHybridRecommender
-    Hybrid of two prediction scores R = R1*alpha + R2*beta + R3*(1-alpha-beta)
 
     """
 
@@ -81,9 +81,12 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
         item_weights_1 = self.Recommender_1._compute_item_score(user_id_array)
         item_weights_2 = self.Recommender_2._compute_item_score(user_id_array)
 
-        print(item_weights_1)
-        print(item_weights_2)
+        l2_1 = LA.norm(item_weights_1, 2)
+        l2_1_scores = item_weights_1 / l2_1
 
-        item_weights = item_weights_1*self.alpha + item_weights_2*(1 - self.alpha)
+        l2_2 = LA.norm(item_weights_2, 2)
+        l2_2_scores = item_weights_2 / l2_2
+
+        item_weights = l2_1_scores*self.alpha + l2_2_scores*(1 - self.alpha)
 
         return item_weights
