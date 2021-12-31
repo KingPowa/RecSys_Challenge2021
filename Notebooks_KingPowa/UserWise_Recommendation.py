@@ -108,37 +108,37 @@ for group_id in range(0, n_groups):
 
 
 class TrainUserBased(object):
-        def __init__(self, URM_train, ICM_all, evaluator):
-            # Hold this implementation specific arguments as the fields of the class.
-            self.URM_train = URM_train
-            self.evaluator = evaluator
-    
-        def __call__(self, trial):
-            # Calculate an objective value by using the extra arguments.
-            
-            search_args = {"epochs": 3000, 
-                           "lambda_i": trial.suggest_loguniform('lambda_i', 1e-5, 1e-2), 
-                           "lambda_j": trial.suggest_loguniform('lambda_j', 1e-5, 1e-2), 
-                           "learning_rate": trial.suggest_uniform('learning_rate', 4e-4, 1e-1), 
-                           "topK": trial.suggest_int('topK', 2000, 8000), 
-                           "random_seed": 1234, 
-                           "sgd_mode": "sgd"}
-            
-            earlystopping_keywargs = {"validation_every_n": 18,
-                          "stop_on_validation": True,
-                          "evaluator_object": self.evaluator,
-                          "lower_validations_allowed": 12,
-                          "validation_metric": "MAP"
-                          }
-            
-            #omega = trial.suggest_uniform('omega', 0.1, 0.9)
-    
-            recommender = SLIM_BPR_Cython_Hybrid(URM_train, ICM_all)
-            recommender.fit(**search_args, **earlystopping_keywargs)
-            result_dict, _ = self.evaluator.evaluateRecommender(recommender)
+    def __init__(self, URM_train, ICM_all, evaluator):
+        # Hold this implementation specific arguments as the fields of the class.
+        self.URM_train = URM_train
+        self.evaluator = evaluator
 
-            map_v = result_dict.loc[cutoff]["MAP"]
-            return -map_v
+    def __call__(self, trial):
+        # Calculate an objective value by using the extra arguments.
+        
+        search_args = {"epochs": 3000, 
+                        "lambda_i": trial.suggest_loguniform('lambda_i', 1e-5, 1e-2), 
+                        "lambda_j": trial.suggest_loguniform('lambda_j', 1e-5, 1e-2), 
+                        "learning_rate": trial.suggest_uniform('learning_rate', 4e-4, 1e-1), 
+                        "topK": trial.suggest_int('topK', 2000, 8000), 
+                        "random_seed": 1234, 
+                        "sgd_mode": "sgd"}
+        
+        earlystopping_keywargs = {"validation_every_n": 18,
+                        "stop_on_validation": True,
+                        "evaluator_object": self.evaluator,
+                        "lower_validations_allowed": 12,
+                        "validation_metric": "MAP"
+                        }
+        
+        #omega = trial.suggest_uniform('omega', 0.1, 0.9)
+
+        recommender = SLIM_BPR_Cython_Hybrid(URM_train, ICM_all)
+        recommender.fit(**search_args, **earlystopping_keywargs)
+        result_dict, _ = self.evaluator.evaluateRecommender(recommender)
+
+        map_v = result_dict.loc[cutoff]["MAP"]
+        return -map_v
 
 
 # In[25]:

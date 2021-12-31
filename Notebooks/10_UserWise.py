@@ -21,7 +21,7 @@ if __name__ == '__main__':
     ICM_length_all_3km = ld.getICMlength('5km')
 
 
-    URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed = 1222)
+    URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed = 1223)
 
     profile_length = np.ediff1d(csr_matrix(URM_train).indptr)
     sorted_users = np.argsort(profile_length)
@@ -29,6 +29,7 @@ if __name__ == '__main__':
     from Recommenders.NonPersonalizedRecommender import TopPop
     from Recommenders.NonPersonalizedRecommender import GlobalEffects
     from Recommenders.KNN.ItemKNNCBFRecommender import ItemKNNCBFRecommender
+    from Recommenders.KNN.UserKNNCFRecommender import UserKNNCFRecommender
     from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython
     from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython_Hybrid
     from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIMElasticNetRecommender
@@ -40,6 +41,12 @@ if __name__ == '__main__':
     from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender_Hybrid
     from Recommenders.MatrixFactorization.Cython.MatrixFactorization_Cython import MatrixFactorization_BPR_Cython_Hybrid
 
+    from Recommenders.KNN.ItemKNNScoresHybridMultipleRecommender import ItemKNNScoresHybridMultipleRecommender
+    from Recommenders.KNN.ItemKNNSimilarityHybridRecommender import ItemKNNSimilarityHybridRecommender
+    from Recommenders.KNN.ItemKNNSimilarityHybridRecommenderNormal import ItemKNNSimilarityHybridRecommenderNormal
+    from Recommenders.HybridScores.DifferentStructure import ThreeDifferentModelRecommender
+    from Recommenders.HybridScores.DifferentStructure import TwoDifferentModelRecommender
+
     MAP_recommender_per_group = {}
 
     collaborative_recommender_class = {
@@ -49,7 +56,8 @@ if __name__ == '__main__':
                                     "TopPop": TopPop,
                                     # "GlobalEffects": GlobalEffects,
                                     "SLIMBPR": SLIM_BPR_Cython,
-                                    "IALS": IALSRecommender
+                                    "IALS": IALSRecommender,
+                                    'UserKNN': UserKNNCFRecommender
                                     }
 
     content_recommender_class = {"ItemKNNCBF": ItemKNNCBFRecommender   
@@ -73,6 +81,18 @@ if __name__ == '__main__':
                                    #'RP3ICM_new' : 'icm_weighted',
                                    #"SLIMweig" : 'icm_weighted'
     }
+
+    similarity_hybrid_recommender = { 'RP3+KNN_S' : ['RP3beta', 'ItemKNNCBF_icm_weighted'],
+                                      'SLIM_mixed_S' : ['SLIMER', 'SLIMBPR']
+                                    }
+
+    score_hybrid_recommender = { 'SLIM_mixed' : ['SLIMER', 'SLIMBPR']
+
+                               }
+
+    similarity_hybrid_recommender2 = { 'RP3+KNN+SLIM_mixed_S' : ['RP3+KNN_S', 'SLIM_mixed_S']
+    }
+
     
     KNN_optimal_hyperparameters = {
         'genre' : {"shrink": 1327, "topK": 622, "feature_weighting": "TF-IDF", "normalize": True},
@@ -104,11 +124,16 @@ if __name__ == '__main__':
 
     CF_optimal_hyperparameters = {
         'TopPop': {},
+        'RP3+KNN_S' : {'alpha' : 0.955},
+        'SLIM_mixed_S' : {'alpha' : 0.978},
+        'RP3+KNN+SLIM_mixed_S': {'alpha': 0.7603833333333334},
+        'SLIM_mixed' : {'norm': 2, 'alpha': 0.58},
+        'UserKNN' : {'topK': 448, 'similarity': 'cosine', 'shrink': 756, 'normalize': True, 'feature_weighting': 'TF-IDF', 'URM_bias': True},
         'RP3ICMnew': {'alpha': 1.029719677583138, 'beta': 1.0630164752134375, 'topK': 6964, 'normalize_similarity': True},
         'RP3ICM' : {"topK": 2550, "alpha": 1.3058102610510849, "beta": 0.5150718337969987, "normalize_similarity": True, "implicit": True},
         'MF_Hyb': {"sgd_mode": "adam", "epochs": 390, "num_factors": 1, "batch_size": 1, "positive_reg": 0.0014765160794342439, "negative_reg": 1e-05, "learning_rate": 0.0007053433729996733},
         'SLIM_BPR_Hyb' : {"epochs": 1443, "lambda_i": 8.900837513818856e-05, "lambda_j": 1.2615223007492727e-05, "learning_rate": 0.0037706733838839264, "topK": 6181, "random_seed": 1234, "sgd_mode": "sgd"},
-        'IALS' : {"num_factors": 29, "epochs": 50, "confidence_scaling": "log", "alpha": 0.001, "epsilon": 0.001, "reg": 0.01},
+        'IALS' : {'num_factors': 34, 'epochs': 599, 'confidence_scaling': 'linear', 'alpha': 0.003519435539271083, 'epsilon': 0.09222402080721787, 'reg': 2.4127708108457617e-05},
         'SLIMgensub': {"l1_ratio" : 0.025887359156206147, "topK": 2140, "alpha": 0.009567288586539689, "workers": 8, "mw": 1},
         'SLIMBPR' : {"epochs": 440, "lambda_i": 0.007773815998802306, "lambda_j": 0.003342522366982381, "learning_rate": 0.010055161410725193, "topK": 4289, "random_seed": 1234, "sgd_mode": "sgd"},
         'SLIMweig': {'l1_ratio': 0.0005247075138160404, 'topK': 4983, 'alpha': 0.06067400905430761, 'workers': 8, 'mw': 2.308619939318322},
@@ -120,7 +145,7 @@ if __name__ == '__main__':
 
     recommender_object_dict = {}
 
-    n_groups = 5
+    n_groups = 3
     block_size = int(len(profile_length)*(n_groups/100))
     cutoff = 10
 
@@ -143,6 +168,27 @@ if __name__ == '__main__':
             recommender_object = recommender_class(URM_train, KNN_ICMs[icm_label])
             recommender_object.fit(**KNN_optimal_hyperparameters[icm_label])
             recommender_object_dict[label + '_' + icm_label] = recommender_object
+
+    for label, recommender_class in similarity_hybrid_recommender.items():
+        recommender1 = recommender_object_dict[recommender_class[0]]
+        recommender2 = recommender_object_dict[recommender_class[1]]
+        recommender_object = ItemKNNSimilarityHybridRecommenderNormal(URM_train, recommender1.W_sparse, recommender2.W_sparse)
+        recommender_object.fit(**CF_optimal_hyperparameters[label])
+        recommender_object_dict[label] = recommender_object
+    
+    for label, recommender_class in similarity_hybrid_recommender2.items():
+        recommender1 = recommender_object_dict[recommender_class[0]]
+        recommender2 = recommender_object_dict[recommender_class[1]]
+        recommender_object = ItemKNNSimilarityHybridRecommenderNormal(URM_train, recommender1.W_sparse, recommender2.W_sparse)
+        recommender_object.fit(**CF_optimal_hyperparameters[label])
+        recommender_object_dict[label] = recommender_object
+
+    for label, recommender_class in score_hybrid_recommender.items():
+        recommender1 = recommender_object_dict[recommender_class[0]]
+        recommender2 = recommender_object_dict[recommender_class[1]]
+        recommender_object = TwoDifferentModelRecommender(URM_train, recommender1, recommender2)
+        recommender_object.fit(**CF_optimal_hyperparameters[label])
+        recommender_object_dict[label] = recommender_object
 
     for group_id in range(0, n_groups):
     
