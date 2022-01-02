@@ -49,3 +49,6 @@ selected_9:
 selected_3:
 {'shrink': 2211, 'topK': 188, 'feature_weighting': 'TF-IDF', 'normalize': True}
 0.0855
+
+ALL:
+{"shrink": 5675, "topK": 2310, "feature_weighting": "BM25", "normalize": false}
