@@ -224,8 +224,8 @@ class SLIM_BPR_Cython_HybridW(SLIM_BPR_Cython):
         self.ICM.eliminate_zeros()
         self.URM_or = URM_train
     
-    def fit(self, mw = 0.5, **args):
+    def fit(self, mw = 1, **args):
         
-        self.URM_train = sps.vstack((self.URM_or*mw, self.ICM*(1-mw)))
+        self.URM_train = sps.vstack((self.URM_or, self.ICM*mw))
         super(SLIM_BPR_Cython_HybridW, self).fit(**args)
         self.URM_train = self.URM_or

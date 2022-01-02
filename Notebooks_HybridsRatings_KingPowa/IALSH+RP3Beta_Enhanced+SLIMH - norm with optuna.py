@@ -131,7 +131,7 @@ if __name__ == "__main__":
                 trial.report(penalty, 0)
     
                 # Prune trial to notify that the parameters are infeasible.
-                raise optuna.structs.TrialPruned()
+                raise optuna.TrialPruned()
     
     study = optuna.create_study(direction='maximize')
     study.optimize(Objective(URM_train, recommender1, recommender2, recommender3, evaluator_validation), n_trials=500)

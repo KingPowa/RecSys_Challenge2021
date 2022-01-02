@@ -105,7 +105,6 @@ if __name__ == "__main__":
 
     subm_set = user_test_dataframe.to_numpy().T[0]
 
-
     subm_res = {"user_id":[], "item_list":[]}
 
     for user_id in subm_set:

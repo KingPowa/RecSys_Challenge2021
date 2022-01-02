@@ -21,9 +21,9 @@ if __name__ == '__main__':
     ICM_length_all_3km = ld.getICMlength('5km')
 
 
-    URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed = 1223)
+    URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed = 9090)
 
-    profile_length = np.ediff1d(csr_matrix(URM_train).indptr)
+    profile_length = np.ediff1d(csr_matrix(URM_all).indptr)
     sorted_users = np.argsort(profile_length)
 
     from Recommenders.NonPersonalizedRecommender import TopPop
@@ -63,34 +63,34 @@ if __name__ == '__main__':
     content_recommender_class = {"ItemKNNCBF": ItemKNNCBFRecommender   
                                 }
 
-    hybrid_recommender_class = {#"IALSHyb": IALSRecommender_Hybrid,
-                                #"SLIMgensub" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
-                                #"SLIMweig" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
-                                #"SLIM_BPR_Hyb" : SLIM_BPR_Cython_Hybrid,
+    hybrid_recommender_class = {"IALSHyb": IALSRecommender_Hybrid,
+                                "SLIMgensub" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
+                                "SLIMweig" : MultiThreadSLIM_SLIM_S_ElasticNetRecommender,
+                                "SLIM_BPR_Hyb" : SLIM_BPR_Cython_Hybrid,
                                 #"MF_Hyb" : MatrixFactorization_BPR_Cython_Hybrid,
                                 "RP3ICM" : RP3betaRecommenderICM,
-                                "RP3ICMnew" : RP3betaRecommenderICM
+                                #"RP3ICMnew" : RP3betaRecommenderICM
     }
 
-    hybrid_recommender_matrices = {#"IALSHyb": 'icm_all',
-                                   #"SLIMgensub": 'icm_genre_subgenre',
-                                   #"SLIM_BPR_Hyb" : 'icm_all',
+    hybrid_recommender_matrices = {"IALSHyb": 'icm_all',
+                                   "SLIMgensub": 'icm_genre_subgenre',
+                                   "SLIM_BPR_Hyb" : 'icm_all',
                                    #"MF_Hyb" : 'icm_all',
                                    'RP3ICM' : 'icm_all',
-                                   'RP3ICMnew' : 'icm_weighted'
+                                   'RP3ICMnew' : 'icm_weighted',
                                    #'RP3ICM_new' : 'icm_weighted',
-                                   #"SLIMweig" : 'icm_weighted'
+                                   "SLIMweig" : 'icm_weighted'
     }
 
     similarity_hybrid_recommender = { 'RP3+KNN_S' : ['RP3beta', 'ItemKNNCBF_icm_weighted'],
-                                      'SLIM_mixed_S' : ['SLIMER', 'SLIMBPR']
+                                      'SLIM_mixed_S' : ['SLIMER', 'SLIMBPR'],
+                                      'SLIM+KNN_S' : ['SLIMER', 'ItemKNNCBF_icm_weighted']
                                     }
 
-    score_hybrid_recommender = { 'SLIM_mixed' : ['SLIMER', 'SLIMBPR']
+    score_hybrid_recommender = { 'SLIM_mixed' : ['SLIMER', 'SLIMBPR'] }
 
-                               }
-
-    similarity_hybrid_recommender2 = { 'RP3+KNN+SLIM_mixed_S' : ['RP3+KNN_S', 'SLIM_mixed_S']
+    similarity_hybrid_recommender2 = { 'RP3+KNN+SLIM_mixed_S' : ['RP3+KNN_S', 'SLIM_mixed_S'],
+                                       'SLIM+KNN+SLIM_BPR_S' : ['SLIM+KNN_S', 'SLIMBPR']
     }
 
     
@@ -118,7 +118,7 @@ if __name__ == '__main__':
 
     hybrid_ICMS = {
         'icm_all': hstack([ICM_genre_all, ICM_channel_all, ICM_length_all_5km]),
-        #'icm_genre_subgenre': hstack([ICM_genre_all, ICM_subgenre_all]),
+        'icm_genre_subgenre': hstack([ICM_genre_all, ICM_subgenre_all]),
         'icm_weighted' : ICM_selected
     }
 
@@ -127,6 +127,8 @@ if __name__ == '__main__':
         'RP3+KNN_S' : {'alpha' : 0.955},
         'SLIM_mixed_S' : {'alpha' : 0.978},
         'RP3+KNN+SLIM_mixed_S': {'alpha': 0.7603833333333334},
+        'SLIM+KNN_S' : {'alpha': 0.9210344},
+        'SLIM+KNN+SLIM_BPR_S' : {'alpha': 0.98857378},
         'SLIM_mixed' : {'norm': 2, 'alpha': 0.58},
         'UserKNN' : {'topK': 448, 'similarity': 'cosine', 'shrink': 756, 'normalize': True, 'feature_weighting': 'TF-IDF', 'URM_bias': True},
         'RP3ICMnew': {'alpha': 1.029719677583138, 'beta': 1.0630164752134375, 'topK': 6964, 'normalize_similarity': True},

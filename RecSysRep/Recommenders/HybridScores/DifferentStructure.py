@@ -45,8 +45,8 @@ class TwoDifferentModelRecommender(BaseRecommender):
         item_weights_1 = self.recommender_1._compute_item_score(user_id_array)
         item_weights_2 = self.recommender_2._compute_item_score(user_id_array)
 
-        norm_item_weights_1 = LA.norm(item_weights_1, self.norm)
-        norm_item_weights_2 = LA.norm(item_weights_2, self.norm)
+        norm_item_weights_1 = 1 if self.norm is None else LA.norm(item_weights_1, self.norm)
+        norm_item_weights_2 = 1 if self.norm is None else LA.norm(item_weights_2, self.norm)
         
         
         if norm_item_weights_1 == 0:
