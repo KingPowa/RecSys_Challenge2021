@@ -59,6 +59,8 @@ class BaseSimilarityMatrixRecommender(BaseRecommender):
             dataIO.save_data(file_name=file_name, data_dict_to_save = data_dict_to_save)
 
             self._print("Saving complete")
+        else:
+            print("W_sparse not defined")
 
 
 
