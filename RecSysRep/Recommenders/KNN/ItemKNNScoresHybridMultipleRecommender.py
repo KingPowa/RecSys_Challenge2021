@@ -78,18 +78,6 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
         self.URM_train = check_matrix(URM_train.copy(), 'csr')
         self.Recommender_1 = Recommender_1
         self.Recommender_2 = Recommender_2
-
-        n_users = URM_train.shape[0]
-        print(n_users)
-
-        item_weights_1 = self.Recommender_1._compute_item_score(np.arange(n_users))
-        item_weights_2 = self.Recommender_2._compute_item_score(np.arange(n_users))
-
-        l2_1 = LA.norm(item_weights_1, 2)
-        self.l2_1_scores = item_weights_1 / l2_1
-
-        l2_2 = LA.norm(item_weights_2, 2)
-        self.l2_2_scores = item_weights_2 / l2_2
         
         
         
@@ -106,7 +94,7 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
 
     def _compute_item_score(self, user_id_array = None, items_to_compute = None):
         
-        '''
+        
         item_weights_1 = self.Recommender_1._compute_item_score(user_id_array)
         item_weights_2 = self.Recommender_2._compute_item_score(user_id_array)
 
@@ -115,7 +103,7 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
 
         l2_2 = LA.norm(item_weights_2, 2)
         l2_2_scores = item_weights_2 / l2_2
-        '''
+        
 
         item_weights = self.l2_1_scores*self.alpha + self.l2_2_scores*(1 - self.alpha)
 
