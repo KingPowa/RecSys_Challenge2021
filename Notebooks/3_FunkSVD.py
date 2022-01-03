@@ -13,7 +13,7 @@ sys.path.append('../RecSysRep/')
 
 import Basics.Load as ld
 
-URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
+URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, _ = ld.getCOOs()
 # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8)
 
 
@@ -35,7 +35,7 @@ evaluator_validation = EvaluatorHoldout(URM_validation, cutoff_list=[10])
 
 import os
 
-output_folder_path = "../result_experiments/3_FunkSVD_py"
+output_folder_path = "../result_experiments/3_FunkSVD/"
 
 # If directory does not exist, create
 if not os.path.exists(output_folder_path):

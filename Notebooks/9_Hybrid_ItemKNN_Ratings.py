@@ -16,6 +16,7 @@ import Basics.Load as ld
 URM_all, _, _, _, _ = ld.getCOOs()
 ICM_sel_7 = ld.getICMselected('7')
 ICM_sel_9 = ld.getICMselected('9')
+ICM_all = ld.getICMall()
 # URM_train, URM_val = ld.getSplit(URM_train_val, 5678, 0.8)
 
 
@@ -53,6 +54,7 @@ models_to_combine_best = {
                             'sel9': {"shrink": 5212, "topK": 923, "feature_weighting": "TF-IDF", "normalize": True},
                             'sel3': {'shrink': 2211, 'topK': 188, 'feature_weighting': 'TF-IDF', 'normalize': True},
                             'ER_BPR': {'alpha': 0.58},
+                            'ICM_all': {"shrink": 5675, "topK": 2310, "feature_weighting": "BM25", "normalize": False},
                          }
 
 
@@ -99,36 +101,37 @@ from Recommenders.KNN.ItemKNNScoresHybridMultipleRecommender import ItemKNNScore
 
 
 recommender1 = MultiThreadSLIM_SLIMElasticNetRecommender(URM_train)
-recommender2 = SLIM_BPR_Cython(URM_train)
-# recommender3 = ItemKNNCBFRecommender(URM_train, ICM_sel_9)
-# recommenderHybrid = ItemKNNScoresHybridTwoRecommender(URM_train, recommender1, recommender2)
+recommender3 = SLIM_BPR_Cython(URM_train)
+recommender2 = ItemKNNCBFRecommender(URM_train, ICM_all)
+
+recommenderHybrid = ItemKNNScoresHybridTwoRecommender(URM_train, recommender1, recommender2)
 
 model_init(recommender1, 'SLIMER', models_to_combine_best['SLIMER'])
 # model_init(recommender2, 'KNNweigh', models_to_combine_best['icm_weighted'])
-model_init(recommender2, 'SLIMBPR', models_to_combine_best['SLIMBPR'])
-# model_init(recommender3, 'KNN_9', models_to_combine_best['sel9'])
+model_init(recommender3, 'SLIMBPR_8888', models_to_combine_best['SLIMBPR'])
+model_init(recommender2, 'KNN_all', models_to_combine_best['ICM_all'])
 
 
 # In[12]:
 
 
 
-# recommenderHybrid.fit(alpha = 0.58)
+recommenderHybrid.fit(alpha = 0.86)
 
 
 # In[ ]:
 
 
-def rank_models(evaluator, recommenders):
-    for r in recommenders:
-        r_d, _ = evaluator.evaluateRecommender(r)
-        print(r.RECOMMENDER_NAME, r_d.loc[10]['MAP'])
+# def rank_models(evaluator, recommenders):
+#     for r in recommenders:
+#         r_d, _ = evaluator.evaluateRecommender(r)
+#         print(r.RECOMMENDER_NAME, r_d.loc[10]['MAP'])
 
 
-# In[ ]:
+# # In[ ]:
 
 
-rank_models(evaluator_validation, [recommender1, recommender2])
+# rank_models(evaluator_validation, [recommender1, recommender3])
 
 
 
@@ -140,9 +143,9 @@ import numpy as np
 # TWO RECOMMENDERS
 
 def test_percentage(recommender_1, recommender_2, evaluator, step):
-    recommender = ItemKNNScoresHybridTwoRecommender(URM_train, recommender_1, recommender_2)
+    recommender = ItemKNNScoresHybridOfHybridRecommender(URM_train, recommender_1, recommender_2)
     results = []
-    alp_space = np.linspace(0.3, 0.8, step, True)
+    alp_space = np.linspace(0.3, 0.95, step, True)
     for alp in alp_space:
         recommender.fit(alpha = alp)
         r_d, _ = evaluator.evaluateRecommender(recommender)
@@ -155,125 +158,76 @@ def test_percentage(recommender_1, recommender_2, evaluator, step):
 # In[18]:
 
 
-alp_space, results = test_percentage(recommender1, recommender2, evaluator_validation, 5)
-
-'''
-
-# In[ ]:
+alp_space, results = test_percentage(recommenderHybrid, recommender3, evaluator_validation, 5)
 
 
-import numpy as np
 
-# THREE RECOMMENDERS
+# # In[ ]:
 
-def test_percentage(recommender_1, recommender_2, recommender_3, evaluator, step):
-    recommender = ItemKNNScoresHybridMultipleRecommender(URM_train, recommender_1, recommender_2, recommender_3)
-    results = []
-    alp_space = np.linspace(12, 18, step, True)
-    for alp in alp_space:
-        recommender.fit(alpha = alp, beta = 5, gamma = 1)
-        r_d, _ = evaluator.evaluateRecommender(recommender)
-        print(alp, ":", r_d.loc[10]['MAP'])
-        results.append(r_d.loc[10]['MAP'])
+
+# import numpy as np
+
+# # THREE RECOMMENDERS
+
+# def test_percentage(recommender_1, recommender_2, recommender_3, evaluator, step):
+#     recommender = ItemKNNScoresHybridMultipleRecommender(URM_train, recommender_1, recommender_2, recommender_3)
+#     results = []
+#     alp_space = np.linspace(12, 18, step, True)
+#     for alp in alp_space:
+#         recommender.fit(alpha = alp, beta = 5, gamma = 1)
+#         r_d, _ = evaluator.evaluateRecommender(recommender)
+#         print(alp, ":", r_d.loc[10]['MAP'])
+#         results.append(r_d.loc[10]['MAP'])
     
-    return alp_space, results
+#     return alp_space, results
 
 
-# In[ ]:
+# # In[ ]:
 
 
-alp_space, results = test_percentage(recommender1, recommender2, recommender3, evaluator_validation, 5)
+# alp_space, results = test_percentage(recommender1, recommender2, recommender3, evaluator_validation, 5)
 
 
-# In[ ]:
+# # In[ ]:
 
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
-_ = plt.figure(figsize=(16, 9))
-plt.plot(alp_space,results, label='MAP variability')
-plt.ylabel('MAP')
-plt.xlabel('User Group')
-plt.legend()
-plt.show()
+# _ = plt.figure(figsize=(16, 9))
+# plt.plot(alp_space,results, label='MAP variability')
+# plt.ylabel('MAP')
+# plt.xlabel('User Group')
+# plt.legend()
+# plt.show()
 
-plt.savefig('userwise.png')
+# plt.savefig('userwise.png')
 
 
 # * # SLIMER + KNNweight: 0.2499 with alpha = 0.95
 # * # SLIMER + SLIMBPR: 0.2507 with alpha = 0.58
 # * # (SLIMER + SLIMBPR) + KNN_selected_3: 0.2509 with alpha 0.96
+# * # SLIMER + ICM_all: 0.249 with alpha = 0.86
 
 # In[ ]:
 
 
-from skopt.space import Real, Integer, Categorical
-
-hyperparameters_range_dictionary = {
-    "shrink": Integer(10, 500),
-    "topK": Integer(200, 1000),
-    "feature_weighting": Categorical(["none", "TF-IDF"]),
-    "normalize": Categorical([True, False]),
-    "ICM_weight": Integer(5, 500),
-}
-
 
 # In[ ]:
 
-
-from Recommenders.KNN.ItemKNN_CFCBF_Hybrid_Recommender import ItemKNN_CFCBF_Hybrid_Recommender
-from HyperparameterTuning.SearchBayesianSkopt import SearchBayesianSkopt
-
-recommender_class = ItemKNN_CFCBF_Hybrid_Recommender
-
-hyperparameterSearch = SearchBayesianSkopt(recommender_class,
-                                         evaluator_validation=evaluator_validation)
-
-
-# In[ ]:
-
-
-from HyperparameterTuning.SearchAbstractClass import SearchInputRecommenderArgs
-  
-recommender_input_args = SearchInputRecommenderArgs(
-    CONSTRUCTOR_POSITIONAL_ARGS = [URM_train, ICM_genre_all],     # For a CBF model simply put [URM_train, ICM_train]
-    CONSTRUCTOR_KEYWORD_ARGS = {},
-    FIT_POSITIONAL_ARGS = [],
-    FIT_KEYWORD_ARGS = {}, # Additiona hyperparameters for the fit function
-)
-
-
-# In[ ]:
-
-
-if __name__ == '__main__':
-    hyperparameterSearch.search(recommender_input_args,
-                           hyperparameter_search_space = hyperparameters_range_dictionary,
-                           n_cases = n_cases,
-                           n_random_starts = n_random_starts,
-                           output_folder_path = output_folder_path,
-                           output_file_name_root = recommender_class.RECOMMENDER_NAME,
-                           metric_to_optimize = metric_to_optimize,
-                           cutoff_to_optimize = cutoff_to_optimize,
-                          )
-
-
-# In[ ]:
-
-
+'''
 
 recommender1 = MultiThreadSLIM_SLIMElasticNetRecommender(URM_all)
 # recommender1.fit(**models_to_combine_best['SLIMER'])
 # recommender1.save_model(ofp + 'SLIMER_ALL/', 'SLIMER_ALL')
 recommender1.load_model(ofp + 'SLIMER_ALL/', 'SLIMER_ALL')
 
-recommender2 = SLIM_BPR_Cython(URM_all)
-# recommender2.fit(**models_to_combine_best['SLIMBPR'])
-# recommender2.save_model(ofp + 'SLIMBPR_ALL/', 'SLIMBPR_ALL')
-recommender2.load_model(ofp + 'SLIMBPR_ALL/', 'SLIMBPR_ALL')
+recommender2 = ItemKNNCBFRecommender(URM_all, ICM_all)
+# recommender2.fit(**models_to_combine_best['ICM_all'])
+# recommender2.save_model(ofp + 'ItemKNN_ALL/', 'ItemKNN_ALL')
+recommender2.load_model(ofp + 'ItemKNN_ALL/', 'ItemKNN_ALL')
 
 recommenderHybrid = ItemKNNScoresHybridTwoRecommender(URM_all, recommender1, recommender2)
-recommenderHybrid.fit(alpha = 0.58)
+recommenderHybrid.fit(alpha = 0.86)
 
 recommender = recommenderHybrid
 
@@ -310,10 +264,12 @@ from datetime import datetime
 now = datetime.now() # current date and time
 
 
-submission.to_csv('../subs/submission {:%Y_%m_%d %H_%M_%S}.csv'.format(now), index=False)
+submission.to_csv('./submission {:%Y_%m_%d %H_%M_%S}.csv'.format(now), index=False)
 
 
 # In[ ]:
+
+
 
 
 from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIMElasticNetRecommender
@@ -350,7 +306,6 @@ pd.DataFrame(ICM_selected).to_csv('ICM_selected_1.csv', index=False, header=True
 
 
 # In[ ]:
-
 
 
 
