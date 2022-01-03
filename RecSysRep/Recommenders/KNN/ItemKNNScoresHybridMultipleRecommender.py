@@ -105,7 +105,7 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
         l2_2_scores = item_weights_2 / l2_2
         
 
-        item_weights = self.l2_1_scores*self.alpha + self.l2_2_scores*(1 - self.alpha)
+        item_weights = l2_1_scores*self.alpha + l2_2_scores*(1 - self.alpha)
 
         return item_weights
 
