@@ -1,0 +1,27 @@
+EN + RP3:
+- scores: from 24895 to 24904 (alpha = 0.95)
+- similarity: from 24745 to 24765 (alpha = 0.91)
+
+EN + BPR:
+- similarity: from 24745 to 25000 (alpha = 0.97)
+- scores: from 24895 to 25021 (alpha = 0.50)
+
+EN + IALS:
+- similarity: IMPOSSIBLE
+- scores:
+
+
+IALS + RP3:
+- similarity: IMPOSSIBLE
+- scores: from 23307 to 23741 (alpha = 0.35)
+
+IALS + BPR:
+- similarity: IMPOSSIBLE
+- scores:
+
+RP3 + BPR:
+- similarity
+- scores
+
+EN + UserKNN:
+

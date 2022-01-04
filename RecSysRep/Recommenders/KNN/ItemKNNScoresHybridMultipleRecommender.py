@@ -10,6 +10,7 @@ from Recommenders.Recommender_utils import check_matrix, similarityMatrixTopK
 from Recommenders.BaseSimilarityMatrixRecommender import BaseItemSimilarityMatrixRecommender
 from numpy import linalg as LA
 import numpy as np
+import numpy.ma as ma
 
 
 class ItemKNNScoresHybridMultipleRecommender(BaseItemSimilarityMatrixRecommender):
@@ -109,26 +110,22 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
 
         return item_weights
 
-class ItemKNNScoresHybridOfHybridRecommender(BaseItemSimilarityMatrixRecommender):
-    """ ItemKNNScoresHybridRecommender
+class ItemKNNScoresHybridTwoRecommender_PRELOAD(BaseItemSimilarityMatrixRecommender):
 
-    """
-
-    RECOMMENDER_NAME = "ItemKNNScoresHybridOfHybridRecommender"
+    RECOMMENDER_NAME = "ItemKNNScoresHybridTwoRecommender_PRELOAD"
 
 
-    def __init__(self, URM_train, Recommender_Hybrid, Recommender_2, verbose = True):
-        super(ItemKNNScoresHybridOfHybridRecommender, self).__init__(URM_train, verbose = verbose)
+    def __init__(self, URM_train, Recommender_1, Recommender_2, verbose = True):
+        super(ItemKNNScoresHybridTwoRecommender_PRELOAD, self).__init__(URM_train, verbose = verbose)
 
         self.URM_train = check_matrix(URM_train.copy(), 'csr')
-        self.Recommender_1 = Recommender_Hybrid
-        self.Recommender_2 = Recommender_2
+    
+        n_users = self.URM_train.shape[0]
 
-        n_users = URM_train.shape[0]
-        print(n_users)
+        item_weights_1 = Recommender_1._compute_item_score(np.arange(n_users))
+        item_weights_2 = Recommender_2._compute_item_score(np.arange(n_users))
 
-        item_weights_1 = self.Recommender_1._compute_item_score(np.arange(n_users))
-        item_weights_2 = self.Recommender_2._compute_item_score(np.arange(n_users))
+        print("Starting init on matrix with shape: " + str(item_weights_1.shape))
 
         l2_1 = LA.norm(item_weights_1, 2)
         self.l2_1_scores = item_weights_1 / l2_1
@@ -136,26 +133,72 @@ class ItemKNNScoresHybridOfHybridRecommender(BaseItemSimilarityMatrixRecommender
         l2_2 = LA.norm(item_weights_2, 2)
         self.l2_2_scores = item_weights_2 / l2_2
         
+        print("Completed init")
+        
         
     def fit(self, alpha = 0.5):
 
         self.alpha = alpha
+
+        
 
         '''
         print(f"CURRENT CONFIGURATION:\n{self.Recommender_1.RECOMMENDER_NAME} with weight alpha: {self.alpha}")
         print(f"{self.Recommender_2.RECOMMENDER_NAME} with weight beta: {1 - self.alpha}")
         '''
 
-    def _compute_item_score(self, user_id_array, items_to_compute):
+    def _compute_item_score(self, user_id_array = None, items_to_compute = None):
         
-        item_weights_1 = self.Recommender_1._compute_item_score(user_id_array, items_to_compute)
+
+        item_weights = self.l2_1_scores[user_id_array, items_to_compute]*self.alpha + self.l2_2_scores[user_id_array, items_to_compute]*(1 - self.alpha)
+
+        return item_weights
+
+class ItemKNNScoresHybridTwoRecommender_PRUNE(BaseItemSimilarityMatrixRecommender):
+    """ ItemKNNScoresHybridRecommender
+
+    """
+
+    RECOMMENDER_NAME = "ItemKNNScoresHybridTwoRecommender"
+
+
+    def __init__(self, URM_train, Recommender_1, Recommender_2, verbose = True):
+        super(ItemKNNScoresHybridTwoRecommender_PRUNE, self).__init__(URM_train, verbose = verbose)
+
+        self.URM_train = check_matrix(URM_train.copy(), 'csr')
+        self.Recommender_1 = Recommender_1
+        self.Recommender_2 = Recommender_2
+        
+        
+        
+    def fit(self, alpha = 0.5):
+
+        self.alpha = alpha
+
+        
+
+        '''
+        print(f"CURRENT CONFIGURATION:\n{self.Recommender_1.RECOMMENDER_NAME} with weight alpha: {self.alpha}")
+        print(f"{self.Recommender_2.RECOMMENDER_NAME} with weight beta: {1 - self.alpha}")
+        '''
+
+    def _compute_item_score(self, user_id_array = None, items_to_compute = None):
+        
+        
+        item_weights_1 = self.Recommender_1._compute_item_score(user_id_array)
         item_weights_2 = self.Recommender_2._compute_item_score(user_id_array)
 
-        l2_1 = LA.norm(item_weights_1, 2)
-        l2_1_scores = item_weights_1 / l2_1
+        th1 = item_weights_1.mean()*0.2
+        th2 = item_weights_2.mean()*0.2
+        masked1 = ma.array(item_weights_1, mask = item_weights_1<th1).filled(fill_value = 0)
+        masked2 = ma.array(item_weights_2, mask = item_weights_2<th2).filled(fill_value = 0)
 
-        l2_2 = LA.norm(item_weights_2, 2)
-        l2_2_scores = item_weights_2 / l2_2
+        l2_1 = LA.norm(masked1, 2)
+        l2_1_scores = masked1 / l2_1
+
+        l2_2 = LA.norm(masked2, 2)
+        l2_2_scores = masked2 / l2_2
+        
 
         item_weights = l2_1_scores*self.alpha + l2_2_scores*(1 - self.alpha)
 

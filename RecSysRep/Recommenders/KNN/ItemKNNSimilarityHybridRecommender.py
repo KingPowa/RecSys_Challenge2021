@@ -34,15 +34,16 @@ class ItemKNNSimilarityHybridRecommender(BaseItemSimilarityMatrixRecommender):
         self.Similarity_2 = check_matrix(Similarity_2.copy(), 'csr')
 
 
-    def fit(self, topK=100, alpha = 0.5):
+    def fit(self, topK=None, alpha = 0.5):
 
         self.topK = topK
         self.alpha = alpha
 
         W_sparse = self.Similarity_1*self.alpha + self.Similarity_2*(1-self.alpha)
 
-        self.W_sparse = similarityMatrixTopK(W_sparse, k=self.topK)
-        self.W_sparse = check_matrix(self.W_sparse, format='csr')
+        if (topK is not None):
+            self.W_sparse = similarityMatrixTopK(W_sparse, k=self.topK)
+        self.W_sparse = check_matrix(W_sparse, format='csr')
 
 
 class ItemKNNSimilarityHybridRecommender_L2(BaseItemSimilarityMatrixRecommender):
@@ -73,12 +74,13 @@ class ItemKNNSimilarityHybridRecommender_L2(BaseItemSimilarityMatrixRecommender)
         self.Similarity_2 = check_matrix(l2_2_sim.copy(), 'csr')
 
 
-    def fit(self, topK=100, alpha = 0.5):
+    def fit(self, topK=None, alpha = 0.5):
 
         self.topK = topK
         self.alpha = alpha
 
         W_sparse = self.Similarity_1*self.alpha + self.Similarity_2*(1-self.alpha)
 
-        self.W_sparse = similarityMatrixTopK(W_sparse, k=self.topK)
+        if (topK is not None):
+            self.W_sparse = similarityMatrixTopK(W_sparse, k=self.topK)
         self.W_sparse = check_matrix(self.W_sparse, format='csr')

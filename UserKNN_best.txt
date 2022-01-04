@@ -1,0 +1,2 @@
+{"topK": 469, "similarity": "cosine", "shrink": 588, "normalize": true, "feature_weighting": "TF-IDF", "URM_bias": false}
+0.23337
