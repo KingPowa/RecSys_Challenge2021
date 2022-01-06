@@ -1,0 +1,1 @@
+Trial 4 finished with value: -0.2504686774658556 and parameters: {'w_1': 0.9223240041183095, 'w_2': 0.7064256295822543, 'w_3': 0.5984169010259033}. Best is trial 4 with value: -0.2504686774658556.

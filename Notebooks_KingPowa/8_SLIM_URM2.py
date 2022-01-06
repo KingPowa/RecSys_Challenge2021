@@ -19,11 +19,9 @@ if __name__ == '__main__':
 
     import Basics.Load as ld
 
-    URM_all, ICM_genre_all, ICM_subgenre_all, ICM_channel_all, ICM_event_all = ld.getCOOs()
-    ICM_length_all = ld.getICMlength()
+    URM_all, _, _, _, _= ld.getCOOs()
 
-    ICM_all = sps.hstack((ICM_genre_all, ICM_channel_all, ICM_length_all))
-
+    ICM_all = ld.getICMall()
 
     # In[18]:
 
@@ -50,7 +48,7 @@ if __name__ == '__main__':
     from Evaluation.Evaluator import EvaluatorHoldout
     from Data_manager.split_functions.split_train_validation_random_holdout import split_train_in_two_percentage_global_sample
 
-    URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8)
+    URM_train, URM_validation = split_train_in_two_percentage_global_sample(URM_all, train_percentage = 0.8, seed=9284)
 
 
     # In[20]:
@@ -66,11 +64,11 @@ if __name__ == '__main__':
     from skopt.space import Real, Integer, Categorical
 
     hyperparameters_range_dictionary = {
-        "topK": Integer(5, 2000),
+        "topK": Categorical([18000]),
         "l1_ratio": Real(low=1e-5, high=1.0, prior='log-uniform'),
         "alpha": Real(low=1e-3, high=1.0, prior='uniform'),
-        "mw": Real(low=1, high=100, prior='uniform'),
-        "workers": Categorical([2])
+        "mw": Real(low=1, high=3, prior='uniform'),
+        "workers": Categorical([8])
     }
 
     '''
@@ -121,72 +119,5 @@ if __name__ == '__main__':
                         )
 
 
-    # In[ ]:
 
-
-    from Recommenders.DataIO import DataIO
-
-    data_loader = DataIO(folder_path = output_folder_path)
-    search_metadata = data_loader.load_data(recommender_class.RECOMMENDER_NAME + "_metadata.zip")
-
-    search_metadata.keys()
-
-
-    # In[ ]:
-
-
-    hyp = search_metadata["hyperparameters_best"]
-    hyp
-
-    # In[ ]:
-
-
-    recommender = MultiThreadSLIM_SLIM_S_ElasticNetRecommender(URM_all.tocsr(), ICM_all)
-    K = 10
-
-    recommender.fit(hyp)
-
-
-
-    # In[ ]:
-
-
-    import pandas as pd
-
-    user_test_path = '../data/data_target_users_test.csv'
-    user_test_dataframe = pd.read_csv(filepath_or_buffer=user_test_path,
-                                    sep=",",
-                                    dtype={0:int})
-
-    subm_set = user_test_dataframe.to_numpy().T[0]
-
-
-    subm_res = {"user_id":[], "item_list":[]}
-
-    for user_id in subm_set:
-        subm_res["user_id"].append(user_id)
-        res = recommender.recommend(user_id, K)
-        res = ' '.join(map(str, res))
-        if user_id < 3:
-            print(user_id)
-            print(res)
-        subm_res["item_list"].append(res)
-
-
-    # print(subm_res)
-
-    submission = pd.DataFrame.from_dict(subm_res)
-    # submission
-
-    from datetime import datetime
-    now = datetime.now() # current date and time
-
-
-    submission.to_csv('../subs/submission {:%Y_%m_%d %H_%M_%S}_SLIMURM.csv'.format(now), index=False)
-
-
-    # In[ ]:
-
-
-
-
+    

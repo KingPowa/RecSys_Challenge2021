@@ -11,6 +11,7 @@ from Recommenders.BaseSimilarityMatrixRecommender import BaseItemSimilarityMatri
 from numpy import linalg as LA
 import numpy as np
 import numpy.ma as ma
+import scipy.sparse as sps
 
 
 class ItemKNNScoresHybridMultipleRecommender(BaseItemSimilarityMatrixRecommender):
@@ -125,13 +126,21 @@ class ItemKNNScoresHybridTwoRecommender_PRELOAD(BaseItemSimilarityMatrixRecommen
         item_weights_1 = Recommender_1._compute_item_score(np.arange(n_users))
         item_weights_2 = Recommender_2._compute_item_score(np.arange(n_users))
 
+        th1 = item_weights_1.mean()*0.2
+        th2 = item_weights_2.mean()*0.2
+        masked1 = ma.array(item_weights_1, mask = item_weights_1<th1).filled(fill_value = 0)
+        masked2 = ma.array(item_weights_2, mask = item_weights_2<th2).filled(fill_value = 0)
+
+        mas1 = sps.csr_matrix(masked1)
+        mas2 = sps.csr_matrix(masked2)
+
         print("Starting init on matrix with shape: " + str(item_weights_1.shape))
 
-        l2_1 = LA.norm(item_weights_1, 2)
-        self.l2_1_scores = item_weights_1 / l2_1
+        l2_1 = sps.linalg.norm(mas1, ord=1)
+        self.l2_1_scores = mas1 / l2_1
 
-        l2_2 = LA.norm(item_weights_2, 2)
-        self.l2_2_scores = item_weights_2 / l2_2
+        l2_2 = sps.linalg.norm(mas2, ord=1)
+        self.l2_2_scores = mas2 / l2_2
         
         print("Completed init")
         

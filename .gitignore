@@ -4,6 +4,7 @@ result_experiments/
 .ipynb_checkpoints/
 data/URM_wgh.csv
 models_subs/
+userwise_model/
 model_subs/
 models_temp/
 all_models/

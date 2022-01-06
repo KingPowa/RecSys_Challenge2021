@@ -34,7 +34,7 @@ class TwoDifferentModelRecommender(BaseRecommender):
         
         
         
-    def fit(self, norm, alpha = 0.5):
+    def fit(self, norm = None, alpha = 0.5):
 
         self.alpha = alpha
         self.norm = norm
@@ -88,7 +88,7 @@ class ThreeDifferentModelRecommender(BaseRecommender):
         
     def fit(self, norm, alpha = 0.5, beta = 0.5, gamma = 0.5):
 
-        sump = alpha + beta + gamma
+        sump = alpha+beta+gamma
 
         self.alpha = alpha/sump
         self.beta = beta/sump
@@ -107,9 +107,9 @@ class ThreeDifferentModelRecommender(BaseRecommender):
         item_weights_2 = self.recommender_2._compute_item_score(user_id_array)
         item_weights_3 = self.recommender_3._compute_item_score(user_id_array)
 
-        norm_item_weights_1 = LA.norm(item_weights_1, self.norm)
-        norm_item_weights_2 = LA.norm(item_weights_2, self.norm)
-        norm_item_weights_3 = LA.norm(item_weights_3, self.norm)
+        norm_item_weights_1 = 1 if self.norm is None else LA.norm(item_weights_1, self.norm)
+        norm_item_weights_2 = 1 if self.norm is None else LA.norm(item_weights_2, self.norm)
+        norm_item_weights_3 = 1 if self.norm is None else LA.norm(item_weights_3, self.norm)
         
         
         if norm_item_weights_1 == 0:

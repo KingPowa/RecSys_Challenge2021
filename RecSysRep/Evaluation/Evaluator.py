@@ -131,14 +131,14 @@ def _create_empty_metrics_dict(cutoff_list, n_items, n_users, URM_train, URM_tes
 
     return  empty_dict
 
-
-
-
-
-
 def get_result_string_df(results_run_df, n_decimals=7):
 
     output_str = ""
+    
+    try:
+        print(results_run_df)
+    except ZeroDivisionError:
+        return output_str
 
     for cutoff in results_run_df.index:
 
