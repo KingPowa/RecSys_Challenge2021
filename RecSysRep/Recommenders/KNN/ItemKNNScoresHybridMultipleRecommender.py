@@ -110,6 +110,46 @@ class ItemKNNScoresHybridTwoRecommender(BaseItemSimilarityMatrixRecommender):
 
         return item_weights
 
+
+class ItemKNNScoresHybridTwoRecommender_FAST(BaseItemSimilarityMatrixRecommender):
+    """ ItemKNNScoresHybridRecommender
+
+    """
+
+    RECOMMENDER_NAME = "ItemKNNScoresHybridTwoRecommender_FAST"
+
+
+    def __init__(self, URM_train, Recommender_1, Recommender_2, verbose = True):
+        super(ItemKNNScoresHybridTwoRecommender_FAST, self).__init__(URM_train, verbose = verbose)
+
+        self.URM_train = check_matrix(URM_train.copy(), 'csr')
+        self.Recommender_1 = Recommender_1
+        self.Recommender_2 = Recommender_2
+        
+        
+        
+    def fit(self, alpha = 0.5):
+
+        self.alpha = alpha
+
+        
+
+        '''
+        print(f"CURRENT CONFIGURATION:\n{self.Recommender_1.RECOMMENDER_NAME} with weight alpha: {self.alpha}")
+        print(f"{self.Recommender_2.RECOMMENDER_NAME} with weight beta: {1 - self.alpha}")
+        '''
+
+    def _compute_item_score(self, user_id_array = None, items_to_compute = None):
+        
+        
+        item_weights_1 = self.Recommender_1._compute_item_score(user_id_array)
+        item_weights_2 = self.Recommender_2._compute_item_score(user_id_array)
+
+        item_weights = item_weights_1*self.alpha + item_weights_2*(1 - self.alpha)
+
+        return item_weights
+
+
 class ItemKNNScoresHybridTwoRecommender_PRELOAD(BaseItemSimilarityMatrixRecommender):
 
     RECOMMENDER_NAME = "ItemKNNScoresHybridTwoRecommender_PRELOAD"

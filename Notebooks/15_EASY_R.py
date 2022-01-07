@@ -29,7 +29,7 @@ if not os.path.exists(output_folder_path):
     os.makedirs(output_folder_path)
     
 n_cases = 200  # using 10 as an example
-n_random_starts = int(n_cases*0.4)
+n_random_starts = int(n_cases*0.2)
 metric_to_optimize = "MAP"   
 cutoff_to_optimize = 10
 
@@ -53,9 +53,9 @@ evaluator_validation = EvaluatorHoldout(URM_validation, cutoff_list=[10])
 from skopt.space import Real, Integer, Categorical
 
 hyperparameters_range_dictionary = {
-        "topK": Integer(500, 9000),
+        "topK": Categorical([None]),
         "normalize_matrix": Categorical([False]),
-        "l2_norm": Real(low = 1e0, high = 1e7, prior = 'log-uniform'),
+        "l2_norm": Real(low = 1e2, high = 1e4, prior = 'log-uniform'),
 }
 
 
@@ -95,7 +95,8 @@ hyperparameterSearch.search(recommender_input_args,
                        output_folder_path = output_folder_path, # Where to save the results
                        output_file_name_root = recommender_class.RECOMMENDER_NAME, # How to call the files
                        metric_to_optimize = metric_to_optimize,
-                       cutoff_to_optimize = cutoff_to_optimize
+                       cutoff_to_optimize = cutoff_to_optimize,
+                       resume_from_saved = False,
                       )
 
 
