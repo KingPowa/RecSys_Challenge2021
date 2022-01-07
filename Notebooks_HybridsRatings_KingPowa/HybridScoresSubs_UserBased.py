@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     import os
 
-    ICM_all = sps.hstack([ICM_genre_all, ICM_subgenre_all, ICM_channel_all])
+    ICM_all = sps.hstack([ICM_genre_all, ICM_subgenre_all])
 
     # # SLIM Model
 
@@ -45,14 +45,14 @@ if __name__ == "__main__":
     from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython_Hybrid
     from Recommenders.KNN.ItemKNNCBFRecommender import ItemKNNCBFRecommender
     from Recommenders.SLIM.Cython.SLIM_BPR_Cython import SLIM_BPR_Cython
-    from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIMElasticNetRecommender
+    from Recommenders.SLIM.SLIMElasticNetRecommender import MultiThreadSLIM_SLIM_S_ElasticNetRecommender
     from Recommenders.GraphBased.P3alphaRecommender import P3alphaRecommender
     from Recommenders.GraphBased.RP3betaRecommender import RP3betaRecommender
     from Recommenders.MatrixFactorization.IALSRecommender import IALSRecommender_Hybrid
 
     from Recommenders.KNN.ItemKNNScoresHybridMultipleRecommender import ItemKNNScoresHybridMultipleRecommender
 
-    recommender1 = MultiThreadSLIM_SLIMElasticNetRecommender(URM_all.tocsr())
+    recommender1 = MultiThreadSLIM_SLIM_S_ElasticNetRecommender(URM_all.tocsr(), ICM_all)
     recommender2 = SLIM_BPR_Cython_Hybrid(URM_all.tocsr(), ICM_all)
 
     ofp = "../models_subs/UserWise/"
@@ -83,13 +83,13 @@ if __name__ == "__main__":
             recommender.fit(**args)
             recommender.save_model(ofp, name)
 
-    model_init(recommender1, 'SLIM_pure', CF_opt_hyp['SLIMER'])
-    model_init(recommender2, 'SLIM_BPR_Hyb', CF_opt_hyp['SLIMBPRHyb'])
+    model_init(recommender1, 'SLIM_kk', CF_opt_hyp['SLIMgensub'])
+    model_init(recommender2, 'SLIM_BPR_Hybkk', CF_opt_hyp['SLIMBPRHyb'])
 
-    profile_length = np.ediff1d(sps.csr_matrix(URM_train).indptr)
+    profile_length = np.ediff1d(sps.csr_matrix(URM_all).indptr)
     sorted_users = np.argsort(profile_length)
 
-    n_groups = 10
+    n_groups = 3
     block_size = int(len(profile_length)*(n_groups/100))
     cutoff = 10
 

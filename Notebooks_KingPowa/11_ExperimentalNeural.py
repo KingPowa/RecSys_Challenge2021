@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
     n_items = ICM_genre_all.shape[0]
         
-    n_cases = 50  # using 10 as an example
+    n_cases = 100  # using 10 as an example
     n_random_starts = int(n_cases*0.3)
     metric_to_optimize = "MAP"   
     cutoff_to_optimize = 10
@@ -80,10 +80,10 @@ if __name__ == "__main__":
                 "max_layer_size": Categorical([min(5*1e3, int(2*1e9*8/64/n_items))]),
             }
 
-    earlystopping_keywargs = {"validation_every_n": 5,
+    earlystopping_keywargs = {"validation_every_n": 9,
                             "stop_on_validation": True,
                             "evaluator_object": evaluator_validation,
-                            "lower_validations_allowed": 5,
+                            "lower_validations_allowed": 3,
                             "validation_metric": metric_to_optimize,
                             }
 

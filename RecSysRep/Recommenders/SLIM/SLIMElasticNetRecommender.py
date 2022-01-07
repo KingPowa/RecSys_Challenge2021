@@ -220,8 +220,6 @@ def _partial_fit(items, topK, alpha, l1_ratio, urm_shape, positive_only=True, sh
     return values, rows, cols
 
 
-
-
 class MultiThreadSLIM_SLIMElasticNetRecommender(SLIMElasticNetRecommender):
 
     def fit(self, alpha=1.0, l1_ratio=0.1, positive_only=True, topK=100,
@@ -307,8 +305,6 @@ class MultiThreadSLIM_SLIM_S_ElasticNetRecommender(SLIMElasticNetRecommender):
 
         self.URM_train = check_matrix(self.URM_train, 'csc', dtype=np.float32)
 
-        print(self.URM_train.shape)
-
         indptr_shm = create_shared_memory(self.URM_train.indptr)
         indices_shm = create_shared_memory(self.URM_train.indices)
         data_shm = create_shared_memory(self.URM_train.data)
@@ -348,26 +344,6 @@ class MultiThreadSLIM_SLIM_S_ElasticNetRecommender(SLIMElasticNetRecommender):
         # generate the sparse weight matrix
         self.W_sparse = sps.csr_matrix((values, (rows, cols)), shape=(self.n_items, self.n_items), dtype=np.float32)
         self.URM_train = self.URM_train.tocsr()
-
-'''
-class SLIM_S_ElasticNetRecommender(SLIMElasticNetRecommender):
-    def __init__(self, URM_train, ICM, verbose = True):
-        super(SLIM_S_ElasticNetRecommender, self).__init__(URM_train, verbose = verbose)
-        self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
-        self.ICM.eliminate_zeros()
-        self.URM_train_original = self.URM_train
-
-    @ignore_warnings(category=ConvergenceWarning)
-    def fit(self, alpha=1.0, l1_ratio=0.1, positive_only=True, topK=100, mw = 10):
-
-            self.mw = mw
-
-            # print(self.ICM)
-            self.URM_train = sps.vstack((self.URM_train_original, self.ICM*mw))
-            print(self.URM_train.data[-10:])
-
-            super(SLIM_S_ElasticNetRecommender, self).fit(self, alpha=alpha, l1_ratio=l1_ratio, positive_only=positive_only, topK=topK)
-'''
 
 class MultiThreadSLIM_SLIM_S_ElasticNetRecommender_test(SLIMElasticNetRecommender):
 
@@ -460,7 +436,6 @@ class SLIM_S_ElasticNetRecommender(BaseItemSimilarityMatrixRecommender):
         self.mw = mw
 
         self.URM_train = sps.vstack((self.URM_train_original, self.ICM*mw))
-        print(self.URM_train.data[-10:])
 
         # initialize the ElasticNet model
         self.model = ElasticNet(alpha=alpha,

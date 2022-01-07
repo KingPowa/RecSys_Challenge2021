@@ -117,3 +117,39 @@ def getICMall():
     ICM_length_all_dataframe = pd.read_csv(filepath_or_buffer=ICM_length_path)
     ICM_length_all = sps.coo_matrix(ICM_length_all_dataframe)
     return ICM_length_all
+
+def load_group():
+    group_path = '../data/groups.npy'
+    import numpy as np
+    arr = np.load(group_path, allow_pickle = True)
+    return arr
+
+def load_groups(n_groups):
+    import scipy.sparse as sps
+
+    URM_path = '../data/data_train.csv'
+    URM_all_dataframe = pd.read_csv(filepath_or_buffer=URM_path, 
+                                    sep=",",
+                                    dtype={0:int, 1:int, 2:float})
+    URM_all_dataframe.columns = ["UserID", "ItemID", "Interaction"]
+
+
+    URM_all = sps.coo_matrix((URM_all_dataframe["Interaction"].values, 
+                              (URM_all_dataframe["UserID"].values, URM_all_dataframe["ItemID"].values)))
+
+    profile_length = np.ediff1d(sps.csr_matrix(URM_all).indptr)
+    n_users = URM_all.shape[0]
+    input_km = [[profile_length[i]] for i in range(0, n_users)]
+
+    from sklearn.cluster import KMeans
+    kmeans = KMeans(n_clusters=n_groups, random_state=0).fit(input_km)
+
+    arr = []
+
+    for i in range(n_groups-1, -1, -1):
+        group_i = np.where(kmeans.labels_ == i)[0]
+        arr.append(group_i)
+
+    groups = np.array(arr, dtype='object')
+    return groups
+
