@@ -2,5 +2,9 @@
 
 {'topK': 6821, 'alpha': 0.7882175414335468, 'beta': 0.13421500555519342, 'normalize_similarity': False, 'implicit': True} rp3 item based best 0.066
 
-{"topK": 1049, "alpha": 1.1626473723475605, "beta": 0.6765017195261293, "normalize_similarity": true, "implicit": true} 0.22 rp3
+{"topK": 1049, "alpha": 1.1626473723475605, "beta": 0.6765017195261293, "normalize_similarity": True, "implicit": True} 0.22 rp3
 
+
+normed rp3+ease+slim
+
+{'w_1': 0.7075705187655876, 'w_2': 0.3198976030419761, 'w_3': 0.13682219438485177}

@@ -144,3 +144,18 @@ class EASE_R_Recommender(BaseItemSimilarityMatrixRecommender):
         if not sps.issparse(self.W_sparse):
             self._W_sparse_format_checked = True
             self._compute_item_score = self._compute_score_W_dense
+
+class EASE_R_Recommender_Hybrid(EASE_R_Recommender):
+
+    RECOMMENDER_NAME = 'EASE_R_Recommender_Hybrid'
+
+    def __init__(self, URM_train, ICM, sparse_threshold_quota = None):
+        super(EASE_R_Recommender_Hybrid, self).__init__(URM_train)
+        self.ICM = check_matrix(ICM.copy().T, 'csr', dtype=np.float32)
+        self.ICM.eliminate_zeros()
+        self.URM_original = self.URM_train
+        
+    def fit(self, topK=None, l2_norm = 1e3, normalize_matrix = False, mw=1, verbose = True):
+        self.URM_train = sps.vstack((self.URM_original, self.ICM*mw))
+        super(EASE_R_Recommender_Hybrid, self).fit(topK=topK, normalize_matrix=normalize_matrix, verbose=verbose, l2_norm=l2_norm)
+        self.URM_train = self.URM_original
