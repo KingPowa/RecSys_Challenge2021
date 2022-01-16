@@ -21,34 +21,34 @@ from Evaluation.metrics import precision, precision_recall_min_denominator, reca
 
 class EvaluatorMetrics(Enum):
 
-    # PRECISION = "PRECISION"
-    # PRECISION_RECALL_MIN_DEN = "PRECISION_RECALL_MIN_DEN"
-    # RECALL = "RECALL"
+    PRECISION = "PRECISION"
+    PRECISION_RECALL_MIN_DEN = "PRECISION_RECALL_MIN_DEN"
+    RECALL = "RECALL"
     MAP = "MAP"
-    # MAP_MIN_DEN = "MAP_MIN_DEN"
-    # MRR = "MRR"
-    # NDCG = "NDCG"
-    # F1 = "F1"
-    # HIT_RATE = "HIT_RATE"
-    # ARHR = "ARHR_ALL_HITS"
+    MAP_MIN_DEN = "MAP_MIN_DEN"
+    MRR = "MRR"
+    NDCG = "NDCG"
+    F1 = "F1"
+    HIT_RATE = "HIT_RATE"
+    ARHR = "ARHR_ALL_HITS"
     # RMSE = "RMSE"
-    # NOVELTY = "NOVELTY"
-    # AVERAGE_POPULARITY = "AVERAGE_POPULARITY"
-    # DIVERSITY_SIMILARITY = "DIVERSITY_SIMILARITY"
-    # DIVERSITY_MEAN_INTER_LIST = "DIVERSITY_MEAN_INTER_LIST"
-    # DIVERSITY_HERFINDAHL = "DIVERSITY_HERFINDAHL"
-    # COVERAGE_ITEM = "COVERAGE_ITEM"
-    # COVERAGE_ITEM_CORRECT = "COVERAGE_ITEM_CORRECT"
-    # COVERAGE_USER = "COVERAGE_USER"
-    # COVERAGE_USER_CORRECT = "COVERAGE_USER_CORRECT"
-    # DIVERSITY_GINI = "DIVERSITY_GINI"
-    # SHANNON_ENTROPY = "SHANNON_ENTROPY"
+    NOVELTY = "NOVELTY"
+    AVERAGE_POPULARITY = "AVERAGE_POPULARITY"
+    DIVERSITY_SIMILARITY = "DIVERSITY_SIMILARITY"
+    DIVERSITY_MEAN_INTER_LIST = "DIVERSITY_MEAN_INTER_LIST"
+    DIVERSITY_HERFINDAHL = "DIVERSITY_HERFINDAHL"
+    COVERAGE_ITEM = "COVERAGE_ITEM"
+    COVERAGE_ITEM_CORRECT = "COVERAGE_ITEM_CORRECT"
+    COVERAGE_USER = "COVERAGE_USER"
+    COVERAGE_USER_CORRECT = "COVERAGE_USER_CORRECT"
+    DIVERSITY_GINI = "DIVERSITY_GINI"
+    SHANNON_ENTROPY = "SHANNON_ENTROPY"
 
-    # RATIO_DIVERSITY_HERFINDAHL = "RATIO_DIVERSITY_HERFINDAHL"
-    # RATIO_DIVERSITY_GINI = "RATIO_DIVERSITY_GINI"
-    # RATIO_SHANNON_ENTROPY = "RATIO_SHANNON_ENTROPY"
-    # RATIO_AVERAGE_POPULARITY = "RATIO_AVERAGE_POPULARITY"
-    # RATIO_NOVELTY = "RATIO_NOVELTY"
+    RATIO_DIVERSITY_HERFINDAHL = "RATIO_DIVERSITY_HERFINDAHL"
+    RATIO_DIVERSITY_GINI = "RATIO_DIVERSITY_GINI"
+    RATIO_SHANNON_ENTROPY = "RATIO_SHANNON_ENTROPY"
+    RATIO_AVERAGE_POPULARITY = "RATIO_AVERAGE_POPULARITY"
+    RATIO_NOVELTY = "RATIO_NOVELTY"
 
 
 def _create_empty_metrics_dict(cutoff_list, n_items, n_users, URM_train, URM_test, ignore_items, ignore_users, diversity_similarity_object):
@@ -63,82 +63,82 @@ def _create_empty_metrics_dict(cutoff_list, n_items, n_users, URM_train, URM_tes
         cutoff_dict = {}
 
         for metric in EvaluatorMetrics:
-            # if metric == EvaluatorMetrics.COVERAGE_ITEM:
-            #     cutoff_dict[metric.value] = Coverage_Item(n_items, ignore_items)
+            if metric == EvaluatorMetrics.COVERAGE_ITEM:
+                cutoff_dict[metric.value] = Coverage_Item(n_items, ignore_items)
 
-            # elif metric == EvaluatorMetrics.COVERAGE_ITEM_CORRECT:
-            #     cutoff_dict[metric.value] = Coverage_Item_Correct(n_items, ignore_items)
+            elif metric == EvaluatorMetrics.COVERAGE_ITEM_CORRECT:
+                cutoff_dict[metric.value] = Coverage_Item_Correct(n_items, ignore_items)
 
-            # elif metric == EvaluatorMetrics.DIVERSITY_GINI:
-            #     cutoff_dict[metric.value] = Gini_Diversity(n_items, ignore_items)
+            elif metric == EvaluatorMetrics.DIVERSITY_GINI:
+                cutoff_dict[metric.value] = Gini_Diversity(n_items, ignore_items)
 
-            # elif metric == EvaluatorMetrics.SHANNON_ENTROPY:
-            #     cutoff_dict[metric.value] = Shannon_Entropy(n_items, ignore_items)
+            elif metric == EvaluatorMetrics.SHANNON_ENTROPY:
+                cutoff_dict[metric.value] = Shannon_Entropy(n_items, ignore_items)
 
-            # elif metric == EvaluatorMetrics.COVERAGE_USER:
-            #     cutoff_dict[metric.value] = Coverage_User(n_users, ignore_users)
+            elif metric == EvaluatorMetrics.COVERAGE_USER:
+                cutoff_dict[metric.value] = Coverage_User(n_users, ignore_users)
 
-            # elif metric == EvaluatorMetrics.COVERAGE_USER_CORRECT:
-            #     cutoff_dict[metric.value] = Coverage_User_Correct(n_users, ignore_users)
+            elif metric == EvaluatorMetrics.COVERAGE_USER_CORRECT:
+                cutoff_dict[metric.value] = Coverage_User_Correct(n_users, ignore_users)
 
-            # elif metric == EvaluatorMetrics.DIVERSITY_MEAN_INTER_LIST:
-            #     cutoff_dict[metric.value] = Diversity_MeanInterList(n_items, cutoff)
+            elif metric == EvaluatorMetrics.DIVERSITY_MEAN_INTER_LIST:
+                cutoff_dict[metric.value] = Diversity_MeanInterList(n_items, cutoff)
 
-            # elif metric == EvaluatorMetrics.DIVERSITY_HERFINDAHL:
-            #     cutoff_dict[metric.value] = Diversity_Herfindahl(n_items, ignore_items)
+            elif metric == EvaluatorMetrics.DIVERSITY_HERFINDAHL:
+                cutoff_dict[metric.value] = Diversity_Herfindahl(n_items, ignore_items)
 
-            # elif metric == EvaluatorMetrics.NOVELTY:
-            #     cutoff_dict[metric.value] = Novelty(URM_train)
+            elif metric == EvaluatorMetrics.NOVELTY:
+                cutoff_dict[metric.value] = Novelty(URM_train)
 
-            # elif metric == EvaluatorMetrics.AVERAGE_POPULARITY:
-            #     cutoff_dict[metric.value] = AveragePopularity(URM_train)
+            elif metric == EvaluatorMetrics.AVERAGE_POPULARITY:
+                cutoff_dict[metric.value] = AveragePopularity(URM_train)
 
-            if metric == EvaluatorMetrics.MAP:
-                 cutoff_dict[metric.value] = MAP()
+            elif metric == EvaluatorMetrics.MAP:
+                cutoff_dict[metric.value] = MAP()
 
-            # elif metric == EvaluatorMetrics.MAP_MIN_DEN:
-            #     cutoff_dict[metric.value] = MAP_MIN_DEN()
+            elif metric == EvaluatorMetrics.MAP_MIN_DEN:
+                cutoff_dict[metric.value] = MAP_MIN_DEN()
 
-            # elif metric == EvaluatorMetrics.MRR:
-            #     cutoff_dict[metric.value] = MRR()
+            elif metric == EvaluatorMetrics.MRR:
+                cutoff_dict[metric.value] = MRR()
 
-            # elif metric == EvaluatorMetrics.HIT_RATE:
-            #     cutoff_dict[metric.value] = HIT_RATE()
+            elif metric == EvaluatorMetrics.HIT_RATE:
+                cutoff_dict[metric.value] = HIT_RATE()
 
-            # elif metric == EvaluatorMetrics.RATIO_DIVERSITY_GINI:
-            #     cutoff_dict[metric.value] = Ratio_Diversity_Gini(URM_train, ignore_users)
+            elif metric == EvaluatorMetrics.RATIO_DIVERSITY_GINI:
+                cutoff_dict[metric.value] = Ratio_Diversity_Gini(URM_train, ignore_users)
 
-            # elif metric == EvaluatorMetrics.RATIO_DIVERSITY_HERFINDAHL:
-            #     cutoff_dict[metric.value] = Ratio_Diversity_Herfindahl(URM_train, ignore_users)
+            elif metric == EvaluatorMetrics.RATIO_DIVERSITY_HERFINDAHL:
+                cutoff_dict[metric.value] = Ratio_Diversity_Herfindahl(URM_train, ignore_users)
 
-            # elif metric == EvaluatorMetrics.RATIO_SHANNON_ENTROPY:
-            #     cutoff_dict[metric.value] = Ratio_Shannon_Entropy(URM_train, ignore_users)
+            elif metric == EvaluatorMetrics.RATIO_SHANNON_ENTROPY:
+                cutoff_dict[metric.value] = Ratio_Shannon_Entropy(URM_train, ignore_users)
 
-            # elif metric == EvaluatorMetrics.RATIO_AVERAGE_POPULARITY:
-            #     cutoff_dict[metric.value] = Ratio_AveragePopularity(URM_train)
+            elif metric == EvaluatorMetrics.RATIO_AVERAGE_POPULARITY:
+                cutoff_dict[metric.value] = Ratio_AveragePopularity(URM_train)
 
-            # elif metric == EvaluatorMetrics.RATIO_NOVELTY:
-            #     cutoff_dict[metric.value] = Ratio_Novelty(URM_train)
+            elif metric == EvaluatorMetrics.RATIO_NOVELTY:
+                cutoff_dict[metric.value] = Ratio_Novelty(URM_train)
 
-            # elif metric == EvaluatorMetrics.DIVERSITY_SIMILARITY:
-            #         if diversity_similarity_object is not None:
-            #             cutoff_dict[metric.value] = copy.deepcopy(diversity_similarity_object)
-            # else:
-            #     cutoff_dict[metric.value] = 0.0
+            elif metric == EvaluatorMetrics.DIVERSITY_SIMILARITY:
+                    if diversity_similarity_object is not None:
+                        cutoff_dict[metric.value] = copy.deepcopy(diversity_similarity_object)
+            else:
+                cutoff_dict[metric.value] = 0.0
 
 
         empty_dict[cutoff] = cutoff_dict
 
     return  empty_dict
 
+
+
+
+
+
 def get_result_string_df(results_run_df, n_decimals=7):
 
     output_str = ""
-    
-    try:
-        print(results_run_df)
-    except ZeroDivisionError:
-        return output_str
 
     for cutoff in results_run_df.index:
 
@@ -284,13 +284,13 @@ class Evaluator(object):
                     else:
                         results_current_cutoff[key] = value/self._n_users_evaluated
 
-                # if EvaluatorMetrics.F1.value in results_current_cutoff:
-                #     precision_ = results_current_cutoff[EvaluatorMetrics.PRECISION.value]
-                #     recall_ = results_current_cutoff[EvaluatorMetrics.RECALL.value]
+                if EvaluatorMetrics.F1.value in results_current_cutoff:
+                    precision_ = results_current_cutoff[EvaluatorMetrics.PRECISION.value]
+                    recall_ = results_current_cutoff[EvaluatorMetrics.RECALL.value]
 
-                #     if precision_ + recall_ != 0:
-                #         # F1 micro averaged: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.104.8244&rep=rep1&type=pdf
-                #         results_current_cutoff[EvaluatorMetrics.F1.value] = 2 * (precision_ * recall_) / (precision_ + recall_)
+                    if precision_ + recall_ != 0:
+                        # F1 micro averaged: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.104.8244&rep=rep1&type=pdf
+                        results_current_cutoff[EvaluatorMetrics.F1.value] = 2 * (precision_ * recall_) / (precision_ + recall_)
 
 
         else:
@@ -367,36 +367,36 @@ class Evaluator(object):
                 is_relevant_current_cutoff = is_relevant[0:cutoff]
                 recommended_items_current_cutoff = recommended_items[0:cutoff]
 
-                # results_current_cutoff[EvaluatorMetrics.PRECISION.value]            += precision(is_relevant_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.PRECISION_RECALL_MIN_DEN.value]   += precision_recall_min_denominator(is_relevant_current_cutoff, len(relevant_items))
-                # results_current_cutoff[EvaluatorMetrics.RECALL.value]               += recall(is_relevant_current_cutoff, relevant_items)
-                # results_current_cutoff[EvaluatorMetrics.NDCG.value]                 += ndcg(recommended_items_current_cutoff, relevant_items, relevance=self.get_user_test_ratings(test_user), at=cutoff)
-                # results_current_cutoff[EvaluatorMetrics.ARHR.value]                 += arhr_all_hits(is_relevant_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.PRECISION.value]            += precision(is_relevant_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.PRECISION_RECALL_MIN_DEN.value]   += precision_recall_min_denominator(is_relevant_current_cutoff, len(relevant_items))
+                results_current_cutoff[EvaluatorMetrics.RECALL.value]               += recall(is_relevant_current_cutoff, relevant_items)
+                results_current_cutoff[EvaluatorMetrics.NDCG.value]                 += ndcg(recommended_items_current_cutoff, relevant_items, relevance=self.get_user_test_ratings(test_user), at=cutoff)
+                results_current_cutoff[EvaluatorMetrics.ARHR.value]                 += arhr_all_hits(is_relevant_current_cutoff)
 
-                # results_current_cutoff[EvaluatorMetrics.MRR.value].add_recommendations(is_relevant_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.MRR.value].add_recommendations(is_relevant_current_cutoff)
                 results_current_cutoff[EvaluatorMetrics.MAP.value].add_recommendations(is_relevant_current_cutoff, relevant_items)
-                # results_current_cutoff[EvaluatorMetrics.MAP_MIN_DEN.value].add_recommendations(is_relevant_current_cutoff, relevant_items)
-                # results_current_cutoff[EvaluatorMetrics.HIT_RATE.value].add_recommendations(is_relevant_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.MAP_MIN_DEN.value].add_recommendations(is_relevant_current_cutoff, relevant_items)
+                results_current_cutoff[EvaluatorMetrics.HIT_RATE.value].add_recommendations(is_relevant_current_cutoff)
 
-                # results_current_cutoff[EvaluatorMetrics.NOVELTY.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.AVERAGE_POPULARITY.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.DIVERSITY_GINI.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.SHANNON_ENTROPY.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.COVERAGE_ITEM.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.COVERAGE_ITEM_CORRECT.value].add_recommendations(recommended_items_current_cutoff, is_relevant_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.COVERAGE_USER.value].add_recommendations(recommended_items_current_cutoff, test_user)
-                # results_current_cutoff[EvaluatorMetrics.COVERAGE_USER_CORRECT.value].add_recommendations(is_relevant_current_cutoff, test_user)
-                # results_current_cutoff[EvaluatorMetrics.DIVERSITY_MEAN_INTER_LIST.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.DIVERSITY_HERFINDAHL.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.NOVELTY.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.AVERAGE_POPULARITY.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.DIVERSITY_GINI.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.SHANNON_ENTROPY.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.COVERAGE_ITEM.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.COVERAGE_ITEM_CORRECT.value].add_recommendations(recommended_items_current_cutoff, is_relevant_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.COVERAGE_USER.value].add_recommendations(recommended_items_current_cutoff, test_user)
+                results_current_cutoff[EvaluatorMetrics.COVERAGE_USER_CORRECT.value].add_recommendations(is_relevant_current_cutoff, test_user)
+                results_current_cutoff[EvaluatorMetrics.DIVERSITY_MEAN_INTER_LIST.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.DIVERSITY_HERFINDAHL.value].add_recommendations(recommended_items_current_cutoff)
 
-                # results_current_cutoff[EvaluatorMetrics.RATIO_SHANNON_ENTROPY.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.RATIO_DIVERSITY_HERFINDAHL.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.RATIO_DIVERSITY_GINI.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.RATIO_NOVELTY.value].add_recommendations(recommended_items_current_cutoff)
-                # results_current_cutoff[EvaluatorMetrics.RATIO_AVERAGE_POPULARITY.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.RATIO_SHANNON_ENTROPY.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.RATIO_DIVERSITY_HERFINDAHL.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.RATIO_DIVERSITY_GINI.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.RATIO_NOVELTY.value].add_recommendations(recommended_items_current_cutoff)
+                results_current_cutoff[EvaluatorMetrics.RATIO_AVERAGE_POPULARITY.value].add_recommendations(recommended_items_current_cutoff)
 
-                # if EvaluatorMetrics.DIVERSITY_SIMILARITY.value in results_current_cutoff:
-                #     results_current_cutoff[EvaluatorMetrics.DIVERSITY_SIMILARITY.value].add_recommendations(recommended_items_current_cutoff)
+                if EvaluatorMetrics.DIVERSITY_SIMILARITY.value in results_current_cutoff:
+                    results_current_cutoff[EvaluatorMetrics.DIVERSITY_SIMILARITY.value].add_recommendations(recommended_items_current_cutoff)
 
 
         if time.time() - self._start_time_print > 300 or self._n_users_evaluated==len(self.users_to_evaluate):
